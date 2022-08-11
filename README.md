@@ -1,0 +1,2 @@
+# sdk_2_2_3_2_SanYi_Kernel
+sdk_2_2_3_2_SanYi_Kernel Pat base
