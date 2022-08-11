@@ -1,0 +1,5 @@
+config DYNAMIC_PR_TEST
+	tristate "DYNAMIC_PR_TEST"
+	depends on ARCH_BST
+	help
+	  This implement is dynamic_test

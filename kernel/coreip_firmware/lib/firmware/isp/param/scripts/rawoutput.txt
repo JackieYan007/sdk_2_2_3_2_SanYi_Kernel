@@ -1,0 +1,6 @@
+    //WriteReg32(0x52000080+ispPipeOffset,0x00030f0f);//open Lenc
+	bst-cli.exe write_reg 52000080::00030c00
+    //WriteReg32(0x52000200+ispPipeOffset,0x00030f0f);
+	bst-cli.exe write_reg 52000200::00030c00
+    //WriteReg32(0x52000380+ispPipeOffset,0x00030f0f);
+	bst-cli.exe write_reg 52000380::00030c00

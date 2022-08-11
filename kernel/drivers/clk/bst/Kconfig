@@ -1,0 +1,8 @@
+config COMMON_CLK_BSTA1000A
+	bool "Clock driver for BST A1000A"
+	help
+	  This driver supports BST A1000A crystal clock.
+config COMMON_CLK_BSTA1000B
+	bool "Clock driver for BST A1000B"
+	help
+	  This driver supports BST A1000B crystal clock.

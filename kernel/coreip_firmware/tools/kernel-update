@@ -1,0 +1,47 @@
+#! /bin/bash
+
+# Update Core IP files
+# 2021-10-14 Oak Chen Created
+
+notice() {
+    # shellcheck disable=SC2145,SC2128
+    echo -e "\E[30;46m$@\E[0m"
+}
+
+err() {
+    # shellcheck disable=SC2145,SC2128
+    echo -e "\E[47;31mError: Line ${BASH_LINENO}, CMD: ${BASH_COMMAND}\E[0m" >&2
+    exit 1
+}
+
+trap err ERR
+
+dirty=$(cat /proc/sys/vm/dirty_expire_centisecs)
+# 修改磁盘同步周期为1秒以确保写入
+echo 100 > /proc/sys/vm/dirty_expire_centisecs
+
+TMP=$(mktemp -d)
+echo "update kernel image ==="
+mount /dev/mmcblk0p1 "${TMP}"
+cp boot/* "${TMP}"
+sync -f "${TMP}"/*
+umount "${TMP}"
+
+echo "update kernel module ==="
+if [ -d rootfs ]; then
+    pushd rootfs >&/dev/null || exit 1
+    shopt -s nullglob
+    for entry in *; do
+        cp -drf "${entry}" /
+        sync -f /"${entry}"
+    done
+fi
+
+sleep 2
+echo "${dirty}" > /proc/sys/vm/dirty_expire_centisecs
+
+notice "Update completed"
+
+sync
+reboot
+

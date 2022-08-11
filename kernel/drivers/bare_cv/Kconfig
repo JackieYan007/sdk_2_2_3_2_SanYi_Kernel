@@ -1,0 +1,12 @@
+
+config BARE_CV
+    tristate "Support BST CV"
+    depends on ARM64
+    depends on HAS_DMA
+    select BARE_CV_FW
+    help
+        BST CV driver is included
+    default m
+
+config BARE_CV_FW
+    bool "BST CV Runtime Firmware"

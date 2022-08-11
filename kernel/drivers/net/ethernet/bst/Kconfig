@@ -1,0 +1,24 @@
+#
+# BST Net device configuration
+#
+
+config NET_VENDOR_BST
+	bool "BST Net devices"
+	default y
+	depends on HAS_IOMEM
+    select PHYLINK
+	help
+	  If you have a network (Ethernet) card based on Synopsys Ethernet IP
+	  Cores, say Y.
+
+	  Note that the answer to this question doesn't directly affect the
+	  kernel: saying N will just cause the configurator to skip all
+	  the questions about BST Net cards. If you say Y, you will
+	  be asked for your specific card in the following questions.
+
+if NET_VENDOR_BST
+
+source "drivers/net/ethernet/bst/dwmac/Kconfig"
+source "drivers/net/ethernet/bst/veth/Kconfig"
+
+endif # NET_VENDOR_BST

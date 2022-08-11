@@ -1,0 +1,6 @@
+config PWM_BST
+	tristate "BST PWM support"
+	depends on ARCH_BST
+	help
+	  To compile this driver as a module, choose M here: the module
+	  will be called pwm-bst.

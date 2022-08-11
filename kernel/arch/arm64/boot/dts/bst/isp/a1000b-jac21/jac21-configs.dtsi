@@ -1,0 +1,27 @@
+#include "../common/a1000b-isp-csi2.dtsi"
+#include "jac21-desers.dtsi"
+#include "jac21-cameras.dtsi"
+
+
+/ {
+	isp {
+		use-dsp;
+		dsp-core-id = /bits/ 8 <1>;
+		/* This refer to (DSP reserved mem + 0x400*core_id), see bst_cv_reserved,
+		   and ask CV firmware maintainer to get detail.
+		 */
+		dsp-sync-ddr-base = <0x9A000400>;
+
+		core@0 {
+			ports {
+				port@4 {
+					reg = <4>;
+
+					hdmi_isp: endpoint@4 {
+						remote-endpoint = <&hdmi_in>;
+					};
+				};
+			};
+		};
+	};
+};

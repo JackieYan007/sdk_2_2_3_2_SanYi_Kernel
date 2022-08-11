@@ -1,0 +1,45 @@
+/*
+  ov10652-raw   1824x940
+  view0:        1824x940
+  view1:        1280x720
+  view2:        320x180
+*/
+compatible = "bst,ov10652";
+type = "ov10652";
+sensor-id = <0x30>;
+data-type = <0x2b>;
+fv-polarity-low = <0>;
+fpd3-mode = "csi-2";
+serializer = "ti953";
+
+algo-offline = "ov10652offline/ov10652_raw20_sy_h60_offline_AlgoParam.bin";
+iq-offline = "ov10652offline/ov10652_raw20_sy_h60_IqParam.bin";
+algo-online = "ov10652offline/ov10652_raw20_sy_h60_offline_AlgoParam.bin";
+iq-online = "ov10652offline/ov10652_raw20_sy_h60_IqParam.bin";
+pwl-lut = "ov10652offline/ov10652_raw20_sy_h60_pwl_lut.bin";
+
+hdr-stagger-en = <0xa1>;
+exp-num = <3>;
+isp-pwl-infomat = <15>;
+dvp-data-type = <0xac>;
+vin-data-type = <0x2c>;
+size = <1824 940>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <1280 720>;
+
+view1-fmt = <1>;
+view1-size = <1824 940>;
+
+view2-fmt = <0>;
+view2-size = <320 160>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+
+hblank = <0>;
+isp-top-crop = <0>;
+isp-bot-crop = <0>;
+isp-lef-crop = <0>;
+isp-rig-crop = <0>;

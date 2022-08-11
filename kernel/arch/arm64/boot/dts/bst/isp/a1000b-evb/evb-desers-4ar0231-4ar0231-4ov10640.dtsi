@@ -1,0 +1,69 @@
+/*
+   default deser config for evb
+   deser0@i2c2 0x30:    ti960
+   deser1@i2c2 0x32:    ti960
+   deser2@i2c2 0x34:    ti960
+*/
+
+&i2c3 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: ti960@30 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "evb";
+        reg = <0x30>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        trigger-mode = <1>;                 /*0:default,1:internal,2:external*/
+        trigger-fps = <22>;
+        trigger-tx-gpio = <1>;
+        trigger-rx-gpio = <1>;
+        pdb-gpio = <&porta 20 0>;
+    };
+
+    deser1: ti960@3d {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "evb";
+        reg = <0x3d>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        trigger-mode = <1>;                 /*0:default,1:internal,2:external*/
+        trigger-fps = <22>;
+        trigger-tx-gpio = <1>;
+        trigger-rx-gpio = <1>;
+        pdb-gpio = <&porta 21 0>;
+    };
+
+    deser2: ti960@3c {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "evb";
+        reg = <0x3c>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        trigger-mode = <1>;                 /*0:default,1:internal,2:external*/
+        trigger-fps = <30>;
+        trigger-tx-gpio = <1>;
+        trigger-rx-gpio = <1>;
+        pdb-gpio = <&porta 22 0>;
+    };
+
+    deser3: ti960@34 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "evb";
+        reg = <0x34>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        pdb-gpio = <&porta 23 0>;
+    };
+};
+
+#include "../common/a1000b-deser.dtsi"

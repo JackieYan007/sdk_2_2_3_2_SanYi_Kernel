@@ -1,0 +1,20 @@
+Kernel编译：
+根目录下，执行./make.sh
+目标文件路径: build_out
+zebu使用文件：uImage_a.raw
+              uImage_b.raw
+              bsta1000_dtb_a.raw
+              bsta1000_dtb_b.raw
+haps使用文件：	uImage & bsta1000.dtb  
+建议:
+uImage 加载地址 0x8007ffc0
+bsta1000.dtb 加载地址 0x89000000
+Uboot启动命令：bootm 0x8007ffc0 - 0x89000000
+
+其他说明：
+1、 A1000设备树源文件： arch/arm64/boot/dts/bst/
+	A1000配置文件：     arch/arm64/configs/bsta1000_deconfig (如果执行了./make.sh menuconfig后，记得拷贝build/.config到此)
+2、在haps上，请将时钟设置成25M，配置地址为dts:misc_clk:clock-frequency = <25000000>;
+3、Zebu上执行的话，建议时钟设置为4M（计时会不准）,但是启动速度和命令响应速度经过对比测试，相对平衡。
+   由于在Zebu上时钟不稳定且频率低，所以linux计时会不准确，请在编码过程中注意延时的设置。
+4、如果想在系统内导入自己的文件或APP，请将文件copy到./rootfs/usr/ 目录下，然后重新编译kernel，加载即可。

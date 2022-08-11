@@ -1,0 +1,38 @@
+/*
+   default deser config for pat
+   deser0@i2c2 0x3d:    ti954
+   deser1@i2c3 0x30:    ncn4
+   deser2@i2c3 0x32:    ncn4
+*/
+
+&i2c2 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: ti954@3d {
+        compatible = "bst,ti-deser-hub";
+        type = "ti954";
+        reg = <0x3d>;
+        lane-speed = <1600>;
+        pdb-gpio = <&porta 29 0>;
+    };
+};
+
+&i2c3 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser1: ncn4@30 {
+        compatible = "bst,n4";
+        reg = <0x30>;
+        reset-gpio = <&porta 19 0>;
+    };
+
+    deser2: ncn4@32 {
+        compatible = "bst,n4";
+        reg = <0x32>;
+        reset-gpio = <&porta 20 0>;
+    };
+};
+
+#include "../common/a1000b-deser.dtsi"

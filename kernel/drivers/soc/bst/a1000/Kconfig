@@ -1,0 +1,17 @@
+				
+config BST_DDR_ECC_INT
+        tristate "BST DDR ECC interrupt support"
+	depends on ARCH_BST
+	default n
+	help
+          To compile this driver as a module, choose M here: the module
+          will be called bst_ddr_ecc_int.
+
+config BST_KERNEL_NETLINK
+	tristate "BST safety netlink driver support"
+	depends on ARCH_BST && NET_DEVLINK
+	help
+	  This is essentially kernel send message to user for safety function.
+
+source "drivers/soc/bst/a1000/dump_module/Kconfig"
+ 

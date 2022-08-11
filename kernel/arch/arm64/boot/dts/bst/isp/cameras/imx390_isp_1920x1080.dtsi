@@ -1,0 +1,29 @@
+/*
+  ar0231-yuv    1920x1080
+  view0:        1920x1080
+  view1:        1280x720
+  view2:        320x180
+  trigger_gpio : GPIO0
+*/
+compatible = "bst,imx390-isp";
+data-type = <0x1e>;
+fv-polarity-low = <1>;
+fpd3-mode = "csi-2";
+serializer = "ti953";
+tri-gpio = <0>;
+
+size = <1920 1080>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <1280 720>;
+
+view1-fmt = <1>;
+view1-size = <1920 1080>;
+
+view2-fmt = <0>;
+view2-size = <320 180>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0x100>;

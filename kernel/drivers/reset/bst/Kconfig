@@ -1,0 +1,8 @@
+config RESET_BSTA1000A
+	tristate "BST A1000A System Resource Reset"
+	help
+	  This option enables support for the external reset functions for BST A1000A.
+config RESET_BSTA1000B
+	tristate "BST A1000B System Resource Reset"
+	help
+	  This option enables support for the external reset functions for BST A1000B.

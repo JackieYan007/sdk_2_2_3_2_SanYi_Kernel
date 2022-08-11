@@ -1,0 +1,7 @@
+config BST_ERROR_NOTIFIER
+	bool "open bst error notifier handle"
+
+config BST_ERROR_TEST
+	tristate "bst error module"
+	depends on BST_ERROR_NOTIFIER
+    default m

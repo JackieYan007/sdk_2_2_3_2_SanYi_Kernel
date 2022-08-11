@@ -1,0 +1,28 @@
+/*
+  ar0231-yuv    1280x720
+  view0:        1280x720
+  view1:        -
+  view2:        -
+
+  this config file is for senyun ar0231, 
+  1. datatype:  YUYV(0x5e)
+  2. frame valid minimum: zero
+*/
+compatible = "bst,ar0231-yuv-senyun";
+sensor-id = <0x5d>;
+data-type = <0x5e>;
+fv-polarity-low = <0>;
+frame-valid-min = <0>;
+fpd3-mode = "raw10";
+serializer = "ti933";
+
+size = <1280 720>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <1280 720>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0x800>;
+tri-gpio = <1>;

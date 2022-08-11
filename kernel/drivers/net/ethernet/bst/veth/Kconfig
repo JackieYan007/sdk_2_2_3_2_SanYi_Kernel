@@ -1,0 +1,7 @@
+config BST_PCIE_VETH
+	tristate "BST_PCIE virtual ethernet support"
+    default y
+	depends on PCIE_BST && PCIE_BST_PLAT && (PCIE_BST_HOST || PCIE_BST_EP)
+	help
+	  This is the driver for the PCIE virtual ethernet built around a
+	  BlackSesame SOC.

@@ -1,0 +1,26 @@
+ipc_mailbox_controller.c:157:			uint32_t src = ipc_msg->src;
+ipc_mailbox_controller.c:203:			if(ipc_msg->dst == IPC_CORE_DSP) // FIXME debug
+ipc_communication_manager.c:224:        if (ipc_session_valid(ipc_msg->session_id))
+ipc_communication_manager.c:227:            ipc_msg->type = REPALY;
+ipc_communication_manager.c:229:            ipc_session_msg_in((struct ipc_session*)ipc_msg->session_id, ipc_msg);
+ipc_interface.c:186:    ipc_msg->type = msg->type;
+ipc_interface.c:187:    ipc_msg->cmd = msg->cmd;
+ipc_interface.c:188:    ipc_msg->session_id = session_id;
+ipc_interface.c:189:    ipc_msg->dst = dest;
+ipc_interface.c:190:    ipc_msg->token = msg->token;
+ipc_interface.c:191:    ipc_msg->src = ((struct ipc_session*)session_id)->cpu_id;
+ipc_interface.c:233:    msg->type = ipc_msg->type;
+ipc_interface.c:234:    msg->cmd = ipc_msg->cmd;
+ipc_interface.c:235:    msg->token = ipc_msg->token;
+ipc_interface.c:236:    msg->data = ipc_msg->long_param;
+ipc.c:145:					ipc_msg->src, ipc_msg->dst, ipc_msg->session_id);
+ipc.c:148:	ret = ipc_node_valid(ipc_msg->src);
+ipc.c:155:	ret = ipc_node_valid(ipc_msg->dst);
+ipc.c:162:	ret = ipc_session_valid(ipc_msg->session_id);
+ipc.c:169:	if(!is_cmd_valid(ipc_msg->dst, ipc_msg->cmd))
+ipc.c:175:	// if(subscribe_cmd_of_core(ipc_msg->dst, ipc_msg->cmd) != 0)
+ipc.c:184:	IPC_TRACE_PRINTK("sync_call= %d", ipc_msg->sync_call);
+ipc.c:198:	ret = ipc_send(ipc_msg->dst, (void*)msg_to_send , 0);
+apu.c:73:	ipc_session_msg_in((struct ipc_session*)ipc_msg->session_id, ipc_msg);
+apu.c:85:	enum ipc_core_e dst_core = ipc_msg->dst;
+apu.c:89:	if (ipc_session_valid(ipc_msg->session_id)) // TODO delete message after deal

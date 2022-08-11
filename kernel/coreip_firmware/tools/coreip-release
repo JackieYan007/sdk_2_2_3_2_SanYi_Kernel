@@ -1,0 +1,68 @@
+#! /bin/bash
+
+# 生成CoreIP发布包，应在编译Kernel后，在Kernel源码目录下执行
+# Copyright (C) 2021-2021 Oak Chen <oak.chen@bst.ai>
+# 2021-10-14 Oak Chen Created
+
+notice() {
+    # shellcheck disable=SC2145,SC2128
+    echo -e "\E[30;46m$@\E[0m"
+}
+
+err() {
+    # shellcheck disable=SC2145,SC2128
+    echo -e "\E[47;31mError: Line ${BASH_LINENO}, CMD: ${BASH_COMMAND}\E[0m" >&2
+    exit 1
+}
+
+trap err ERR
+
+if [ -z "$1" ]; then
+    echo "$0 <ReleaseName> [rootfs dir]"
+    exit 1
+fi
+
+if [ -n "$2" ]; then
+    rfs=$2
+    if [ ! -d "${rfs}" ]; then
+        echo "Rootfs ${rfs} does not exist"
+        exit 1
+    fi
+fi
+
+rm -rf "$1" "$1.tar.gz"
+mkdir -p "$1"/boot
+cp build/Image.itb "$1"/boot
+
+mkdir -p "$1"/rootfs
+# install ko
+export INSTALL_MOD_PATH=$(realpath "$1"/rootfs)
+pushd build > /dev/null 2>&1 || (echo "Failed to enter build directory" && exit 1)
+
+rm -f linux  linux.gz
+aarch64-linux-gnu-objcopy  -O binary vmlinux linux
+gzip -f linux 
+echo " INSTALL_MOD_PATH =   " $INSTALL_MOD_PATH
+
+make modules_install
+popd > /dev/null 2>&1 || (echo "Failed to change directory" && exit 1)
+
+
+if [ -f build/linux.gz ]; then
+    cp build/linux.gz "$1"/boot
+fi
+cp build/arch/arm64/boot/dts/bst/*.dtb "$1"/boot
+cp "$(dirname "$(realpath "$0")")"/kernel-update "$1"/
+
+if [ -n "${rfs}" ]; then
+    cp -rf "${rfs}" "$1"/rootfs
+    # workaround for /usr/lib64 symbolic link
+    [ -d "$1"/rootfs/usr/lib64 ] && mv "$1"/rootfs/usr/lib64 "$1"/rootfs/usr/lib
+fi
+
+touch "$1"/coreip_driver_version
+echo $1 > "$1"/coreip_driver_version
+
+tar -zcf "$1.tar.gz" "$1"
+
+

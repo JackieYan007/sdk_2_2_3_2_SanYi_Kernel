@@ -1,0 +1,16 @@
+/*
+#include "../common/isp-csi2_speed_800.dtsi"
+#include "ecu-desers_ar0143.dtsi"
+#include "ecu-cameras_ar0143.dtsi"
+*/
+#include "../common/isp-csi2.dtsi"
+#include "ecu-desers.dtsi"
+#include "ecu-cameras.dtsi"
+/* this board support hdmi input */
+/ { 
+    isp { core@0 { ports { port@4 {
+        reg = <4>;
+        hdmi_isp: endpoint@4 {
+        remote-endpoint = <&hdmi_in>;}; 
+    }; }; }; };
+};

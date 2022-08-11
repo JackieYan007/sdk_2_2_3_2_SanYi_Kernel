@@ -1,0 +1,58 @@
+&i2c1 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: ti960@30 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "fad-ctl";
+        reg = <0x30>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        trigger-mode = <1>;                 /*0:default,1:internal,2:external*/
+        trigger-fps = <22>;
+        trigger-tx-gpio = <1>;
+        trigger-rx-gpio = <1>;
+        pdb-gpio = <&porta 20 0>;
+    };
+
+    deser1: ti960@32 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "fad-ctl";
+        reg = <0x32>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        trigger-mode = <1>;                 /*0:default,1:internal,2:external*/
+        trigger-fps = <22>;
+        trigger-tx-gpio = <1>;
+        trigger-rx-gpio = <1>;
+        pdb-gpio = <&porta 21 0>;
+    };
+
+    deser2: ti960@34 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "fad-ctl";
+        reg = <0x34>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        pdb-gpio = <&porta 22 0>;
+    };
+
+    deser3: ti960@36 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "fad-ctl";
+        reg = <0x36>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        pdb-gpio = <&porta 23 0>;
+    };
+};
+
+#include "../common/a1000b-deser-2x2.dtsi"

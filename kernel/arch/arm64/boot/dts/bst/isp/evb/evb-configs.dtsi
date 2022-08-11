@@ -1,0 +1,12 @@
+#include "../common/isp-csi2.dtsi"
+#include "evb-desers.dtsi"
+#include "evb-cameras.dtsi"
+
+/* this board support hdmi input */
+/ { 
+    isp { core@0 { ports { port@4 {
+        reg = <4>;
+        hdmi_isp: endpoint@4 {
+        remote-endpoint = <&hdmi_in>;}; 
+    }; }; }; };
+};

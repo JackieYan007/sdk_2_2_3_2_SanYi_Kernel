@@ -1,0 +1,3 @@
+#include "../common/a1000b-isp-csi2-2x2.dtsi"
+#include "fada-desers-4ar0231-4ar0231-2ov10640-2ov10640.dtsi"
+#include "fad-cameras-4ar0231-4ar0231-2ov10640-2ov10640.dtsi"

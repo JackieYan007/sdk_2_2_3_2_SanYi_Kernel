@@ -1,0 +1,38 @@
+/*
+  ar0231-raw    1920x1080
+*/
+compatible = "bst,ar0231";
+type = "ar0231";
+sensor-id = <0x10>;
+data-type = <0x2c>;
+fv-polarity-low = <0>;
+fpd3-mode = "csi-2";
+serializer = "ti953";
+algo-online = "ar0231online/ar0231_raw12_ts_h60_online_AlgoParam.bin";
+iq-online = "ar0231online/ar0231_raw12_ts_h60_IqParam.bin";
+algo-offline = "ar0231offline/ar0231_raw12_ts_h60_offline_AlgoParam.bin";
+iq-offline = "ar0231offline/ar0231_raw12_ts_h60_IqParam.bin";
+
+hdr-stagger-en = <0x81>;	/* offline mode */
+exp-num = <3>;
+size = <1920 1080>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <1280 720>;
+
+view1-fmt = <1>;
+view1-size = <1920 1080>;
+
+view2-fmt = <0>;
+view2-size = <1920 1080>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0400>;
+
+lines-to-detect-bad = <150>;
+
+cap-yuv;
+cap-raw;
+cap-buf-shift = <0>;		/* This should be 1 when using inline mode */

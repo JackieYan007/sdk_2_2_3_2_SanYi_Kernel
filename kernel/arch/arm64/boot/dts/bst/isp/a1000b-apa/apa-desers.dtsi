@@ -1,0 +1,52 @@
+/*
+   default deser config for apa
+   deser0@i2c2 0x29:    max96722
+*/
+
+&i2c3 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: max96722@29 {
+        compatible = "bst,max96722-deser";
+        type = "max96722";
+        pdb-gpio = <&porta 2 1>;
+        reg = <0x29>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;                     /*necessary fields in csi@2*/
+        cross_bar = <0>;                        /*cross bar*/
+        regs = <0x41 0x42 0x43 0x44>;
+        maxim,fsync-mode = "automatic";
+        maxim,him = <1>;
+        maxim,fsync_period = <3072000>;         /*76.8MHz/25fps*/
+        maxim,bws = <0>;
+        maxim,dbl = <1>;
+        maxim,dt = <3>;      /*YUV8*/
+        maxim,hsync_invert = <0>;
+        maxim,vsync_invert = <1>;	
+        maxim,link_mode = "GMSL1";                    /*ar0143:GMSL1/imx424:GMSL2*/
+    };
+
+    deser1: ti960@32 {
+		status = "disabled";
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x32>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+    };
+
+    deser2: ti960@34 {
+		status = "disabled";
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x34>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+    };
+};
+
+#include "../common/a1000b-deser.dtsi"

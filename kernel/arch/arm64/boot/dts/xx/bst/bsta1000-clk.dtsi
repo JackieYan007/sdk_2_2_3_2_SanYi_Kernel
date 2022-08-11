@@ -1,0 +1,24 @@
+/*
+ * clock specification for Xilinx ZynqMP ep108 development board
+ *
+ * (C) Copyright 2015, Xilinx, Inc.
+ *
+ * Michal Simek <michal.simek@xilinx.com>
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of
+ * the License, or (at your option) any later version.
+ */
+
+&amba {
+	misc_clk: misc_clk {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <25000000>;
+	};
+};
+
+&uart0 {
+	clocks = <&misc_clk &misc_clk>;
+};

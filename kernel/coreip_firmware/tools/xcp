@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# 复制文件，保持目录结构
+
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <source file or dir> <target dir>"
+    exit 1
+fi
+
+src=$1
+basedir=$2
+parent=${basedir}/$(dirname "${src}")
+
+mkdir -p "${parent}" || (echo "Failed to create ${parent}" && exit 1)
+cp -r "${src}" "${parent}"

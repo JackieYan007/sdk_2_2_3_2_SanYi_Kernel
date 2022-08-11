@@ -1,0 +1,1 @@
+obj-$(CONFIG_BST_THERMAL)      += bst_thermal.o

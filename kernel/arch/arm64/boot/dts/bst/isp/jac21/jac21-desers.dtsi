@@ -1,0 +1,67 @@
+/*
+   default deser config for jac21
+   deser0@i2c2 0x30:    ti960
+   deser1@i2c2 0x32:    ti960
+   deser2@i2c2 0x34:    ti960
+*/
+
+&i2c2 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: max96712@29 {
+        compatible = "bst,max96712_x1f-deser";
+        type = "max96712";
+        reg = <0x29>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <800>;                     /*necessary fields in csi@2*/
+        cross-bar = <0>;                        /*cross bar*/
+        regs = <0x41 0x42 0x43 0x44>;
+        maxim,fsync-mode = "manual";
+        maxim,him = <1>;
+        maxim,fsync-period = <3072000>;         /*76.8MHz/25fps*/ 
+        maxim,bws = <0>;
+        maxim,dbl = <1>;
+        maxim,dt = <3>;      /*YUV8*/
+        maxim,hsync-invert = <0>;
+        maxim,vsync-invert = <1>; 
+        maxim,link-mode = "GMSL1";                    /*ar0143:GMSL1/imx424:GMSL2*/
+    };
+};
+
+&i2c4 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser1: max9296@48{
+        compatible = "bst,max9296-jac21-deser";
+        type = "max9296";
+        reg = <0x48>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        regs = <0x44 0x45>;
+        maxim,fsync-mode = "manual";
+        maxim,him = <1>;
+        maxim,fsync_period = <3072000>;         /*76.8MHz/25fps*/
+        maxim,bws = <0>;
+        maxim,dbl = <1>;
+        maxim,dt = <3>;      /*YUV8*/
+        maxim,hsync-invert = <0>;
+        maxim,vsync-invert = <1>;
+        pdb-gpio = <&porta 5 1>;
+    };
+
+    deser2: ti960@34 {
+        status = "disable";
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x34>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+    };
+};
+
+#include "../common/deser.dtsi"

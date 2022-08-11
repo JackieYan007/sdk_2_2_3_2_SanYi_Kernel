@@ -1,0 +1,26 @@
+/*
+  ov10640-yuv   1280x720
+  view0:        1280x720
+  view1:        640x320
+  view2:        -
+*/
+compatible = "bst,ov10640-isp";
+type = "ov10640";
+data-type = <0x1e>;
+fv-polarity-low = <1>;
+fpd3-mode = "raw10";
+serializer = "ti933";
+tri-gpio = <0>;
+
+size = <1280 720>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <640 320>;
+
+view1-fmt = <1>;
+view1-size = <1280 720>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <300>;

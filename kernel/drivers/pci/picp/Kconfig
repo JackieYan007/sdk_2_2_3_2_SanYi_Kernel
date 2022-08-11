@@ -1,0 +1,11 @@
+
+menu "BST PICP"
+
+config BST_PICP
+	tristate "PCIE Interconnection Control Protocol Support"
+	depends on PCIE_BST
+
+source "drivers/pci/picp/pcie_save_conf/Kconfig"
+
+endmenu
+

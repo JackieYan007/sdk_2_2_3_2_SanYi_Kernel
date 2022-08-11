@@ -1,0 +1,5 @@
+config BST_NOC
+	bool "BST NOC Driver"
+	default n
+	help
+	  Support for BST NOC drivers

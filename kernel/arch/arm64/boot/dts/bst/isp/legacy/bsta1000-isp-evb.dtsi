@@ -1,0 +1,436 @@
+/* 
+   this file is reserved only for bsta1000-ec
+   do not use it for other boards
+*/
+#include "bsta1000-camera-ar0231-with-isp.dtsi"
+
+/ {
+    compatible = "bst,a1000";
+    model = "BST A1000";
+
+    isp {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,a1000-isp";
+	// &bst_isp_fw_code_reserved memory must be at first
+        memory-region = <&bst_isp_fw_code_reserved &coreip_reserved>;
+        assigned-mem-size = <0x1000>;
+        mbox-names = "bstn-mbox"; // need
+        mboxes = <0xea 0x6>;
+        isp-fw-fbuf-addr = <0xa2000000>;	/* WARNING: must be same to isp_fw_data_reserved */
+        isp-fw-fbuf-size = <0x10000000>;	/* WARNING: must be same to isp_fw_data_reserved */
+
+        core@0 {
+            id = <0>;
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    isp_channel_0_in: endpoint@0 {
+                        remote-endpoint = <&csi_0_out0>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    isp_channel_1_in: endpoint@1 {
+                        remote-endpoint = <&csi_0_out1>;
+                    };
+                };
+                port@2 {
+                    reg = <2>;
+                    isp_channel_2_in: endpoint@2 {
+                        remote-endpoint = <&csi_0_out2>;
+                    };
+                };
+                port@3 {
+                    reg = <3>;
+                    isp_channel_3_in: endpoint@3 {
+                        remote-endpoint = <&csi_0_out3>;
+                    };
+                };
+                port@4 {
+                    reg = <4>;
+                    hdmi_isp: endpoint@4 {
+                        remote-endpoint = <&hdmi_in>;
+                    };
+                };
+            };
+        };
+
+        core@1 {
+            id = <1>;
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@4 {
+                    reg = <0>;
+                    isp_channel_4_in: endpoint@4 {
+                        remote-endpoint = <&csi_1_out0>;
+                    };
+                };
+                port@5 {
+                    reg = <1>;
+                    isp_channel_5_in: endpoint@5 {
+                        remote-endpoint = <&csi_1_out1>;
+                    };
+                };
+                port@6 {
+                    reg = <2>;
+                    isp_channel_6_in: endpoint@6 {
+                        remote-endpoint = <&csi_1_out2>;
+                    };
+                };
+                port@7 {
+                    reg = <3>;
+                    isp_channel_7_in: endpoint@7 {
+                        remote-endpoint = <&csi_1_out3>;
+                    };
+                };
+            };
+        };
+
+        core@2 {
+            id = <2>;
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@8 {
+                    reg = <0>;
+                    isp_channel_8_in: endpoint@8 {
+                        remote-endpoint = <&csi_2_out0>;
+                    };
+                };
+                port@9 {
+                    reg = <1>;
+                    isp_channel_9_in: endpoint@9 {
+                        remote-endpoint = <&csi_2_out1>;
+                    };
+                };
+                port@a {
+                    reg = <2>;
+                    isp_channel_10_in: endpoint@10 {
+                        remote-endpoint = <&csi_2_out2>;
+                    };
+                };
+                port@b {
+                    reg = <3>;
+                    isp_channel_11_in: endpoint@11 {
+                        remote-endpoint = <&csi_2_out3>;
+                    };
+                };
+            };
+        };
+    };
+    csi@0 {
+	compatible = "bst,a1000_csi2";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        clock-lanes = <0>;
+        data-lanes = <1 2 3 4>;
+        lane-speed = <1600>;
+        id = <0>;
+        resets = <&rstc RST_MIPI0_SW>;
+        reset-names = "csi0_reset";
+        csi-link {
+            ports {
+                port@0 {
+                    csi_0_in: endpoint@0{
+                        remote-endpoint = <&ti960_0_out>;
+                    };
+                };
+            };
+        };
+
+        ports {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            port@0 {
+                reg = <0>;
+                csi_0_out0: endpoint@0 {
+                    remote-endpoint = <&isp_channel_0_in>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                csi_0_out1: endpoint@1 {
+                    remote-endpoint = <&isp_channel_1_in>;
+                };
+            };
+            port@2 {
+                reg = <2>;
+                csi_0_out2: endpoint@2 {
+                    remote-endpoint = <&isp_channel_2_in>;
+                };
+            };
+            port@3 {
+                reg = <3>;
+                csi_0_out3: endpoint@3 {
+                    remote-endpoint = <&isp_channel_3_in>;
+                };
+            };
+        };
+    };
+
+    csi@1 {
+	compatible = "bst,a1000_csi2";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        clock-lanes = <0>;
+        data-lanes = <1 2 3 4>;
+        lane-speed = <1600>;
+        id = <1>;
+        resets = <&rstc RST_MIPI1_SW>;
+        reset-names = "csi1_reset";
+        csi-link {
+            ports {
+                port@0 {
+                    csi_1_in: endpoint@0{
+                        remote-endpoint = <&ti960_1_out>;
+                    };
+                };
+            };
+        };
+
+        //channel {
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    csi_1_out0: endpoint@0 {
+                        remote-endpoint = <&isp_channel_4_in>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    csi_1_out1: endpoint@1 {
+                        remote-endpoint = <&isp_channel_5_in>;
+                    };
+                };
+                port@2 {
+                    reg = <2>;
+                    csi_1_out2: endpoint@2 {
+                        remote-endpoint = <&isp_channel_6_in>;
+                    };
+                };
+                port@3 {
+                    reg = <3>;
+                    csi_1_out3: endpoint@3 {
+                        remote-endpoint = <&isp_channel_7_in>;
+                    };
+                };
+            };
+        //};
+    };
+
+    csi@2 {
+	compatible = "bst,a1000_csi2";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        clock-lanes = <0>;
+        data-lanes = <1 2 3 4>;
+        lane-speed = <1600>;
+        resets = <&rstc RST_MIPI2_SW>;
+        reset-names = "csi2_reset";
+        id = <2>;
+        csi-link {
+            ports {
+                port@0 {
+                    csi_2_in: endpoint@0{
+                        remote-endpoint = <&ti960_2_out>;
+                    };
+                };
+            };
+        };
+
+        //channel {
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    csi_2_out0: endpoint@0 {
+                        remote-endpoint = <&isp_channel_8_in>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    csi_2_out1: endpoint@1 {
+                        remote-endpoint = <&isp_channel_9_in>;
+                    };
+                };
+                port@2 {
+                    reg = <2>;
+                    csi_2_out2: endpoint@2 {
+                        remote-endpoint = <&isp_channel_10_in>;
+                    };
+                };
+                port@3 {
+                    reg = <3>;
+                    csi_2_out3: endpoint@3 {
+                        remote-endpoint = <&isp_channel_11_in>;
+                    };
+                };
+            };
+        //};
+
+    };
+};
+
+&i2c2 {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+    ti960@0 {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x30>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        csi-link {
+            ports {
+                port@0 {
+                    clock-lanes = <0>;
+                    data-lanes = <1 2 3 4>;
+                    ti960_0_out: endpoint{
+                        remote-endpoint = <&csi_0_in>;
+                    };
+                };
+            };
+        };
+        ports {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            port@0 {
+                reg = <0>;
+                ti960_0_in_0: endpoint@0{
+                    remote-endpoint = <&tianshi_ar0231_0_out>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                ti960_0_in_1: endpoint@1{
+                    remote-endpoint = <&tianshi_ar0231_1_out>;
+                };
+            };
+            port@2 {
+                reg = <2>;
+                ti960_0_in_2: endpoint@2{
+                    remote-endpoint = <&tianshi_ar0231_2_out>;
+                };
+            };
+            port@3 {
+                reg = <3>;
+                ti960_0_in_3: endpoint@3{
+                    remote-endpoint = <&tianshi_ar0231_3_out>;
+                };
+            };
+        };
+    };
+
+    ti960@1 {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x32>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        csi-link {
+            ports {
+                port@0 {
+                    clock-lanes = <0>;
+                    data-lanes = <1 2 3 4>;
+                    ti960_1_out: endpoint{
+                        remote-endpoint = <&csi_1_in>;
+                    };
+                };
+            };
+        };
+
+        ports {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            port@0 {
+                reg = <0>;
+                ti960_1_in_0: endpoint@0{
+                    remote-endpoint = <&tianshi_ar0231_4_out>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                ti960_1_in_1: endpoint@1{
+                    remote-endpoint = <&tianshi_ar0231_5_out>;
+                };
+            };
+            port@2 {
+                reg = <2>;
+                ti960_1_in_2: endpoint@2{
+                    remote-endpoint = <&tianshi_ar0231_6_out>;
+                };
+            };
+            port@3 {
+                reg = <3>;
+                ti960_1_in_3: endpoint@3{
+                    remote-endpoint = <&tianshi_ar0231_7_out>;
+                };
+            };
+        };
+    };
+
+    ti960@2 {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x34>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        csi-link {
+            ports {
+                port@0 {
+                    clock-lanes = <0>;
+                    data-lanes = <1 2 3 4>;
+                    ti960_2_out: endpoint{
+                        remote-endpoint = <&csi_2_in>;
+                    };
+                };
+            };
+        };
+
+        ports {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            port@0 {
+                reg = <0>;
+                ti960_2_in_0: endpoint@0{
+                    remote-endpoint = <&tianshi_ar0231_8_out>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                ti960_2_in_1: endpoint@1{
+                    remote-endpoint = <&tianshi_ar0231_9_out>;
+                };
+            };
+            port@2 {
+                reg = <2>;
+                ti960_2_in_2: endpoint@2{
+                    remote-endpoint = <&tianshi_ar0231_10_out>;
+                };
+            };
+            port@3 {
+                reg = <3>;
+                ti960_2_in_3: endpoint@3{
+                    remote-endpoint = <&tianshi_ar0231_11_out>;
+                };
+            };
+        };
+    };
+};

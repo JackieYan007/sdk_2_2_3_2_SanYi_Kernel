@@ -1,0 +1,168 @@
+&deser0 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    csi-link {
+        ports {
+            port@0 {
+                clock-lanes = <0>;
+                data-lanes = <1 2 3 4>;
+                deser_0_out: endpoint{
+                    remote-endpoint = <&csi_0_in>;
+                };
+            };
+        };
+    };
+
+    ports {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        port@0 {
+            reg = <0>;
+            deser_0_in_0: endpoint@0{
+                remote-endpoint = <&camera_0_out>;
+            };
+        };
+        port@1 {
+            reg = <1>;
+            deser_0_in_1: endpoint@1{
+                remote-endpoint = <&camera_1_out>;
+            };
+        };
+        port@2 {
+            reg = <2>;
+            deser_0_in_2: endpoint@2{
+                remote-endpoint = <&camera_2_out>;
+            };
+        };
+        port@3 {
+            reg = <3>;
+            deser_0_in_3: endpoint@3{
+                remote-endpoint = <&camera_3_out>;
+            };
+        };
+    };
+};
+
+&deser1 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    csi-link {
+        ports {
+            port@0 {
+                clock-lanes = <0>;
+                data-lanes = <1 2 3 4>;
+                deser_1_out: endpoint{
+                    remote-endpoint = <&csi_1_in>;
+                };
+            };
+        };
+    };
+
+    ports {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        port@0 {
+            reg = <0>;
+            deser_1_in_0: endpoint@0{
+                remote-endpoint = <&camera_4_out>;
+            };
+        };
+        port@1 {
+            reg = <1>;
+            deser_1_in_1: endpoint@1{
+                remote-endpoint = <&camera_5_out>;
+            };
+        };
+        port@2 {
+            reg = <2>;
+            deser_1_in_2: endpoint@2{
+                remote-endpoint = <&camera_6_out>;
+            };
+        };
+        port@3 {
+            reg = <3>;
+            deser_1_in_3: endpoint@3{
+                remote-endpoint = <&camera_7_out>;
+            };
+        };
+    };
+};
+
+&deser2 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    csi-link {
+        ports {
+            port@0 {
+                clock-lanes = <0>;
+                data-lanes = <1 2>;
+                deser_2_out: endpoint{
+                    remote-endpoint = <&csi_2_in>;
+                };
+            };
+        };
+    };
+
+    ports {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        port@0 {
+            reg = <0>;
+            deser_2_in_0: endpoint@0{
+                remote-endpoint = <&camera_8_out>;
+            };
+        };
+        port@1 {
+            reg = <1>;
+            deser_2_in_1: endpoint@1{
+                remote-endpoint = <&camera_9_out>;
+            };
+        };
+        port@2 {
+            reg = <2>;
+            deser_2_in_2: endpoint@2{
+                remote-endpoint = <&camera_10_out>;
+            };
+        };  
+        port@3 {
+            reg = <3>;
+            deser_2_in_3: endpoint@3{
+                remote-endpoint = <&camera_11_out>;
+            };
+        };                
+    };
+};
+/*
+&deser3 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    csi-link {
+        ports {
+            port@0 {
+                clock-lanes = <0>;
+                data-lanes = <1 2>;
+                deser_3_out: endpoint{
+                    remote-endpoint = <&csi_2_in>;
+                };
+            };
+        };
+    };
+
+    ports {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        port@0 {
+            reg = <0>;
+            deser_3_in_0: endpoint@2{
+                remote-endpoint = <&camera_10_out>;
+            };
+        };
+        port@1 {
+            reg = <1>;
+            deser_3_in_1: endpoint@3{
+                remote-endpoint = <&camera_11_out>;
+            };
+        };             
+    };
+};
+*/

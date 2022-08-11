@@ -1,0 +1,16 @@
+config VIDEO_BST_ISP
+	tristate "BST ISP Video Input Driver"
+	depends on VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API && MEDIA_CONTROLLER
+	select VIDEOBUF2_CORE
+	select V4L2_FWNODE
+	select VIDEOBUF2_MEMOPS
+	select VIDEOBUF2_DMA_CONTIG
+	select BST_COREIP
+	help
+	  Support for BST Video Input driver.
+config VIDEO_BST_CSI
+	tristate "BST ISP Video Input Phy Receiver Driver"
+	depends on VIDEO_V4L2 && VIDEO_V4L2_SUBDEV_API && OF
+	select V4L2_FWNODE
+	help
+	  Support for BST Video Phy Receiver driver.

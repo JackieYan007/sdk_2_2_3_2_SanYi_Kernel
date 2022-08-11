@@ -1,0 +1,9 @@
+menuconfig BST_VOUT
+	bool "BST vout support"
+	help
+	  This flag enables support for DRM vout.
+
+if BST_VOUT
+source "drivers/gpu/drm/bst-vsp/vout/Kconfig"
+endif
+

@@ -1,0 +1,29 @@
+
+compatible = "bst,ar0233";
+type = "ar0233";
+sensor-id = <0x10>;
+data-type = <0x2c>;
+fv-polarity-low = <0>;
+fpd3-mode = "csi-2";
+serializer = "ti953";
+
+algo-online = "ar0233online/ar0233_raw12_ts_h60_online_AlgoParam.bin";
+iq-online = "ar0233online/ar0233_raw12_ts_h60_IqParam.bin";
+
+hdr-stagger-en = <1>;
+exp-num = <3>;
+size = <1920 1080>;
+dvp-dummy = <0x0040>; //[15:x]=dummydata [x:0]=0
+
+view0-fmt = <1>;
+view0-size = <1280 720>;
+
+view1-fmt = <1>;
+view1-size = <1920 1080>;
+
+view2-fmt = <0>;
+view2-size = <320 180>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0x100>;

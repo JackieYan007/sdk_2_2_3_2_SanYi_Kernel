@@ -1,0 +1,1 @@
+obj-$(CONFIG_FB_VIRTUALBST)          += vfb_bst.o

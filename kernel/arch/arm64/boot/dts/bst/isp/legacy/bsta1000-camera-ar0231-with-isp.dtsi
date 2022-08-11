@@ -1,0 +1,327 @@
+
+&i2c2 {
+    tianshi_ar0231@50 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x50>;
+        ser-alias-id = <0x40>;
+        sensor-alias-id = <0x50>;
+        data-type = <0x1e>; //0x1e-yuv/0x2c-raw12/0x2b-raw10
+        fv-polarity-low = <0>;  // 1, low polarity, 0, high polarity
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_0_out: endpoint@0 {
+                remote-endpoint = <&ti960_0_in_0>;
+            };
+        };
+    };
+
+    tianshi_ar0231@51 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x51>;
+        ser-alias-id = <0x41>;
+        sensor-alias-id = <0x51>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_1_out: endpoint@0 {
+                remote-endpoint = <&ti960_0_in_1>;
+            };
+        };
+    };
+
+    tianshi_ar0231@52 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x52>;
+        ser-alias-id = <0x42>;
+        sensor-alias-id = <0x52>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_2_out: endpoint@0 {
+                remote-endpoint = <&ti960_0_in_2>;
+            };
+        };
+    };
+
+    tianshi_ar0231@53 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x53>;
+        ser-alias-id = <0x43>;
+        sensor-alias-id = <0x53>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_3_out: endpoint@0 {
+                remote-endpoint = <&ti960_0_in_3>;
+            };
+        };
+    };
+
+    tianshi_ar0231@54 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x54>;
+        ser-alias-id = <0x44>;
+        sensor-alias-id = <0x54>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_4_out: endpoint@0 {
+                remote-endpoint = <&ti960_1_in_0>;
+            };
+        };
+    };
+
+    tianshi_ar0231@55 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x55>;
+        ser-alias-id = <0x45>;
+        sensor-alias-id = <0x55>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_5_out: endpoint@0 {
+                remote-endpoint = <&ti960_1_in_1>;
+            };
+        };
+    };
+
+    tianshi_ar0231@56 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x56>;
+        ser-alias-id = <0x46>;
+        sensor-alias-id = <0x56>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_6_out: endpoint@0 {
+                remote-endpoint = <&ti960_1_in_2>;
+            };
+        };
+    };
+
+    tianshi_ar0231@57 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x57>;
+        ser-alias-id = <0x47>;
+        sensor-alias-id = <0x57>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_7_out: endpoint@0 {
+                remote-endpoint = <&ti960_1_in_3>;
+            };
+        };
+    };
+
+    tianshi_ar0231@58 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x58>;
+        ser-alias-id = <0x48>;
+        sensor-alias-id = <0x58>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_8_out: endpoint@0 {
+                remote-endpoint = <&ti960_2_in_0>;
+            };
+        };
+    };
+
+    tianshi_ar0231@59 {
+        compatible = "bst,ar0231-isp";
+        reg = <0x59>;
+        ser-alias-id = <0x49>;
+        sensor-alias-id = <0x59>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>;
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_9_out: endpoint@0 {
+                remote-endpoint = <&ti960_2_in_1>;
+            };
+        };
+    };
+
+    tianshi_ar0231@5a {
+        compatible = "bst,ar0231-isp";
+        reg = <0x5a>;
+        ser-alias-id = <0x4a>;
+        sensor-alias-id = <0x5a>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>; // 1, low polarity, 0, high polarity
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_10_out: endpoint@0 {
+                remote-endpoint = <&ti960_2_in_2>;
+            };
+        };
+    };
+
+    tianshi_ar0231@5b {
+        compatible = "bst,ar0231-isp";
+        reg = <0x5b>;
+        ser-alias-id = <0x4b>;
+        sensor-alias-id = <0x5b>;
+        data-type = <0x1e>;
+        fv-polarity-low = <0>; // 1, low polarity, 0, high polarity
+        fpd3-mode = "raw10";
+        serializer = "ti933";
+
+        size = <1920 1080>;
+        dvp-dummy = <0xaaa0>; //[15:x]=dummydata [x:0]=0
+
+        view0-fmt = <1>;
+        view0-size = <1920 1080>;
+
+        pdns-mode = <0>;
+        pdns-input-view = <0>;
+        hblank = <0>;
+
+        port {
+            tianshi_ar0231_11_out: endpoint@0 {
+                remote-endpoint = <&ti960_2_in_3>;
+            };
+        };
+    };
+};
+

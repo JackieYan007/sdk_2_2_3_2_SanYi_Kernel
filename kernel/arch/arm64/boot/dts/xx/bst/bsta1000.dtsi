@@ -1,0 +1,75 @@
+/*
+ * dts file for Xilinx ZynqMP
+ *
+ * (C) Copyright 2014 - 2015, Xilinx, Inc.
+ *
+ * Michal Simek <michal.simek@xilinx.com>
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of
+ * the License, or (at your option) any later version.
+ */
+
+/ {
+	compatible = "bst,a1000";
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		cpu@0 {
+			compatible = "arm,cortex-a55", "arm,armv8";
+			device_type = "cpu";
+			enable-method = "psci";
+			reg = <0x0>;
+		};
+	};
+
+	timer {
+		compatible = "arm,armv8-timer";
+		interrupt-parent = <&gic>;
+		interrupts = <1 13 0xf08>,
+			     <1 14 0xf08>,
+			     <1 11 0xf08>,
+			     <1 10 0xf08>;
+	};
+
+	amba_apu: amba_apu@0 {
+		compatible = "simple-bus";
+		#address-cells = <2>;
+		#size-cells = <1>;
+		ranges = <0 0 0 0 0xffffffff>;
+
+		gic: interrupt-controller@32000000 {
+			compatible = "arm,gic-400", "arm,cortex-a15-gic";
+			#interrupt-cells = <3>;
+			reg = <0x0 0x32001000 0x1000>, /* GICD */
+			      <0x0 0x32002000 0x2000>, /* GICC */
+			      <0x0 0x32004000 0x2000>, /* GICH */
+			      <0x0 0x32006000 0x2000>; /* GICV */
+			interrupt-controller;
+			/*interrupt-parent = <&gic>;*/
+			interrupts = <1 9 0xf04>;
+		};
+	};
+
+	amba: amba {
+		compatible = "simple-bus";
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+		uart0: serial@20008000 {
+			device_type = "serial";
+			compatible = "snps,dw_apb_uart";
+			reg = <0 0x20008000 0x0 0x1000>;
+			reg-shift = <2>;
+			clock-frequency = <25000000>;
+			current-speed = <115200>;
+			interrupt-parent = <&gic>;
+			interrupts = <0 245 0xf04>;
+		};
+	};
+};

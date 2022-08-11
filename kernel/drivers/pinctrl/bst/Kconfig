@@ -1,0 +1,30 @@
+if (ARCH_BST || COMPILE_TEST)
+
+config PINCTRL_MSM
+	bool
+	select PINMUX
+	select PINCONF
+	select GENERIC_PINCONF
+
+config PINCTRL_A1000
+	tristate "Bst A1000 pin controller driver"
+	depends on GPIOLIB && OF
+	select PINCTRL_MSM
+	help
+	This is the pinctrl, pinmux, pinconf driver for the
+	Bst iomux block found in the Bst A1000 platform.
+	
+config BST_PINCTRL_A1000A
+        tristate "bst pinctrl a1000a"
+	help
+        This is the pinctrl, pinmux, pinconf driver for the
+	iomux block found in the BST A1000 platform.
+          
+config BST_PINCTRL_A1000B
+        tristate "bst pinctrl a1000b"
+	help
+        This is the pinctrl, pinmux, pinconf driver for the
+	iomux block found in the BST A1000B platform.
+
+endif
+

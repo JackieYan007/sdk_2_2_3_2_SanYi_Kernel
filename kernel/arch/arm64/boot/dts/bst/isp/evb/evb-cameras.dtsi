@@ -1,0 +1,175 @@
+/* 
+   default camera config for evb
+   ar0231-yuv*4     1920x1080 
+   ov2311-raw*2     1600x1300 
+   ar0231-raw*1     1920x1080 
+   imx390-raw*1     1920x1080 
+   ov10640-yuv*4    1280x720
+*/
+
+&i2c2 {
+    camera0: camera@50 {
+        reg = <0x50>;
+        ser-alias-id = <0x40>;
+        sensor-alias-id = <0x50>;
+
+        #include "../cameras/ar0231_yuv_1920x1080.dtsi"
+
+        port {
+            camera_0_out: endpoint@0 {
+                remote-endpoint = <&deser_0_in_0>;
+            };
+        };
+    };
+
+    camera1: camera@51 {
+        reg = <0x51>;
+        ser-alias-id = <0x41>;
+        sensor-alias-id = <0x51>;
+
+        #include "../cameras/ar0231_yuv_1920x1080.dtsi"
+
+        port {
+            camera_1_out: endpoint@0 {
+                remote-endpoint = <&deser_0_in_1>;
+            };
+        };
+    };
+
+    camera2: camera@52 {
+        reg = <0x52>;
+        ser-alias-id = <0x42>;
+        sensor-alias-id = <0x52>;
+
+        #include "../cameras/ar0231_yuv_1920x1080.dtsi"
+
+        port {
+            camera_2_out: endpoint@0 {
+                remote-endpoint = <&deser_0_in_2>;
+            };
+        };
+    };
+
+    camera3: camera@53 {
+        reg = <0x53>;
+        ser-alias-id = <0x43>;
+        sensor-alias-id = <0x53>;
+
+        #include "../cameras/ar0231_yuv_1920x1080.dtsi"
+
+        port {
+            camera_3_out: endpoint@0 {
+                remote-endpoint = <&deser_0_in_3>;
+            };
+        };
+    };
+
+    camera4: camera@54 {
+        reg = <0x54>;
+        ser-alias-id = <0x44>;
+        sensor-alias-id = <0x54>;
+        #include "../cameras/ar0231_yuv_1920x1080.dtsi"
+        port {
+            camera_4_out: endpoint@0 {
+                remote-endpoint = <&deser_1_in_0>;
+            };
+        };
+    };
+
+    camera5: camera@55 {
+        reg = <0x55>;
+        ser-alias-id = <0x45>;
+        sensor-alias-id = <0x55>;
+    
+        #include "../cameras/ar0231_yuv_1920x1080.dtsi"
+
+        port {
+            camera_5_out: endpoint@0 {
+                remote-endpoint = <&deser_1_in_1>;
+            };
+        };
+    };
+
+    camera6: camera@56 {
+        reg = <0x56>;
+        ser-alias-id = <0x46>;
+        sensor-alias-id = <0x56>;
+        #include "../cameras/ar0231_yuv_1920x1080.dtsi"
+
+        port {
+            camera_6_out: endpoint@0 {
+                remote-endpoint = <&deser_1_in_2>;
+            };
+        };
+    };
+
+    camera7: camera@57 {
+        reg = <0x57>;
+        ser-alias-id = <0x47>;
+        sensor-alias-id = <0x57>;
+        #include "../cameras/ar0231_yuv_1920x1080.dtsi"
+
+        port {
+            camera_7_out: endpoint@0 {
+                remote-endpoint = <&deser_1_in_3>;
+            };
+        };
+    };
+
+    camera8: camera@58 {
+        reg = <0x58>;
+        ser-alias-id = <0x48>;
+        sensor-alias-id = <0x58>;
+
+        #include "../cameras/ov10640_yuv_1280x720.dtsi"
+
+        port {
+            camera_8_out: endpoint@0 {
+                remote-endpoint = <&deser_2_in_0>;
+            };
+        };
+    };
+
+    camera9: camera@59 {
+        reg = <0x59>;
+        ser-alias-id = <0x49>;
+        sensor-alias-id = <0x59>;
+
+        #include "../cameras/ov10640_yuv_1280x720.dtsi"
+
+        port {
+            camera_9_out: endpoint@0 {
+                remote-endpoint = <&deser_2_in_1>;
+            };
+        };
+    };
+
+    camera10: camera@5a {
+        reg = <0x5a>;
+        ser-alias-id = <0x4a>;
+        sensor-alias-id = <0x5a>;
+
+        #include "../cameras/ov10640_yuv_1280x720.dtsi"
+
+        port {
+            camera_10_out: endpoint@0 {
+                remote-endpoint = <&deser_2_in_2>;
+            };
+        };
+    };
+
+    camera11: camera@5b {
+        reg = <0x5b>;
+        ser-alias-id = <0x4b>;
+        sensor-alias-id = <0x5b>;
+
+        #include "../cameras/ov10640_yuv_1280x720.dtsi"
+
+        port {
+            camera_11_out: endpoint@0 {
+                remote-endpoint = <&deser_2_in_3>;
+            };
+        };
+    };
+};
+

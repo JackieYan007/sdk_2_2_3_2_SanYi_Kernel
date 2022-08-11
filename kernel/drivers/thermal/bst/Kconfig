@@ -1,0 +1,7 @@
+config BST_THERMAL
+	tristate "Thermal sensors on BST SoC"
+	depends on ARCH_BST || COMPILE_TEST
+	help
+	  Enable the BST thermal sensors driver, which supports
+	  the primitive temperature sensor embedded in BST A1000 SoCs.
+

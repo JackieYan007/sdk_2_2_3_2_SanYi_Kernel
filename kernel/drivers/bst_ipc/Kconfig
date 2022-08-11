@@ -1,0 +1,13 @@
+
+config BST_IPC
+	bool "Support BST IPC"
+	depends on ARM64
+	select AI_BSTN_FW
+	help
+	  BST IPC driver is included
+	default y
+
+config AI_BSTN_FW
+	bool "Ai bstn dsp runtime firmware"
+
+#test

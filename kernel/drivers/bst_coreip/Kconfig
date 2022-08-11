@@ -1,0 +1,7 @@
+config BST_COREIP
+	bool "BST CoreIP public API"
+	depends on ARM64
+	help
+	  BST CoreIP public API
+	default n
+

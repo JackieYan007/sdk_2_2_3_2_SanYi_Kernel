@@ -1,0 +1,52 @@
+/*
+   default deser config for fawa
+   deser0@i2c2 0x30:    ti960
+   deser1@i2c2 0x3d:    ti960
+   deser2@i2c2 0x3c:    ti960
+*/
+
+&i2c0 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: ti960@30 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        pdb-gpio = <&portd 0 0>;
+        ctl-mode = "fad-lis";
+        reg = <0x30>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        pinctrl-names = "default";
+	    pinctrl-0 = <&des_960_1_pinctrl>;
+    };
+
+    deser1: ti960@3d {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        pdb-gpio = <&portd 2 0>;
+        //ctl-mode = "fad-lis";
+        reg = <0x3d>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        pinctrl-names = "default";
+	    pinctrl-0 = <&des_960_2_pinctrl>;
+    };
+
+    deser2: ti960@34 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        pdb-gpio = <&portd 4 0>;
+        //ctl-mode = "fad-ctl";
+        reg = <0x34>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        pinctrl-names = "default";
+	    pinctrl-0 = <&des_960_3_pinctrl>;
+    };
+};
+
+#include "../common/deser.dtsi"

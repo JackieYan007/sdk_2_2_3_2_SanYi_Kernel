@@ -1,0 +1,178 @@
+/ {
+    compatible = "bst,a1000";
+    model = "BST A1000";
+
+    isp {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,a1000-isp";
+        memory-region = <&bst_isp_fw_code_reserved &coreip_reserved>;
+        assigned-mem-size = <0x1000>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x6>;
+        isp-fw-fbuf-addr = <0xa2000000>;	/* WARNING: must be same to isp_fw_data_reserved */
+        isp-fw-fbuf-size = <0x10000000>;	/* WARNING: must be same to isp_fw_data_reserved */
+
+        core@0 {
+            id = <0>;
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    isp_channel_0_in: endpoint@0 {
+                        remote-endpoint = <&csi_0_out0>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    isp_channel_1_in: endpoint@1 {
+                        remote-endpoint = <&csi_0_out1>;
+                    };
+                };
+                port@2 {
+                    reg = <2>;
+                    isp_channel_2_in: endpoint@2 {
+                        remote-endpoint = <&csi_0_out2>;
+                    };
+                };
+                port@3 {
+                    reg = <3>;
+                    isp_channel_3_in: endpoint@3 {
+                        remote-endpoint = <&csi_0_out3>;
+                    };
+                };
+            };
+        };
+
+        core@1 {
+            id = <1>;
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@4 {
+                    reg = <0>;
+                    isp_channel_4_in: endpoint@4 {
+                        remote-endpoint = <&csi_1_out0>;
+                    };
+                };
+                port@5 {
+                    reg = <1>;
+                    isp_channel_5_in: endpoint@5 {
+                        remote-endpoint = <&csi_1_out1>;
+                    };
+                };
+                port@6 {
+                    reg = <2>;
+                    isp_channel_6_in: endpoint@6 {
+                        remote-endpoint = <&csi_1_out2>;
+                    };
+                };
+                port@7 {
+                    reg = <3>;
+                    isp_channel_7_in: endpoint@7 {
+                        remote-endpoint = <&csi_1_out3>;
+                    };
+                };
+            };
+        };
+    };
+
+    csi@0 {
+	compatible = "bst,a1000_csi2";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        clock-lanes = <0>;
+        data-lanes = <1 2 3 4>;
+        lane-speed = <1600>;
+        id = <0>;
+        resets = <&rstc RST_MIPI0_SW>;
+        reset-names = "csi0_reset";
+        csi-link {
+            ports {
+                port@0 {
+                    csi_0_in: endpoint@0{
+                        remote-endpoint = <&deser_0_out>;
+                    };
+                };
+            };
+        };
+        ports {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            port@0 {
+                reg = <0>;
+                csi_0_out0: endpoint@0 {
+                    remote-endpoint = <&isp_channel_0_in>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                csi_0_out1: endpoint@1 {
+                    remote-endpoint = <&isp_channel_1_in>;
+                };
+            };
+            port@2 {
+                reg = <2>;
+                csi_0_out2: endpoint@2 {
+                    remote-endpoint = <&isp_channel_2_in>;
+                };
+            };
+            port@3 {
+                reg = <3>;
+                csi_0_out3: endpoint@3 {
+                    remote-endpoint = <&isp_channel_3_in>;
+                };
+            };
+        };
+    };
+
+    csi@1 {
+	compatible = "bst,a1000_csi2";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        clock-lanes = <0>;
+        data-lanes = <1 2 3 4>;
+        lane-speed = <1600>;
+        id = <1>;
+        resets = <&rstc RST_MIPI1_SW>;
+        reset-names = "csi1_reset";
+        csi-link {
+            ports {
+                port@0 {
+                    csi_1_in: endpoint@0{
+                        remote-endpoint = <&deser_1_out>;
+                    };
+                };
+            };
+        };
+        ports {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            port@0 {
+                reg = <0>;
+                csi_1_out0: endpoint@0 {
+                    remote-endpoint = <&isp_channel_4_in>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                csi_1_out1: endpoint@1 {
+                    remote-endpoint = <&isp_channel_5_in>;
+                };
+            };
+            port@2 {
+                reg = <2>;
+                csi_1_out2: endpoint@2 {
+                    remote-endpoint = <&isp_channel_6_in>;
+                };
+            };
+            port@3 {
+                reg = <3>;
+                csi_1_out3: endpoint@3 {
+                    remote-endpoint = <&isp_channel_7_in>;
+                };
+            };
+        };
+    };
+};

@@ -1,0 +1,29 @@
+/*
+  ar0143-yuv    1280x720
+  view0:        1280x720
+*/
+compatible = "bst,x1f-isp";
+sensor-id = <0x36>;
+data-type = <0x1e>;
+fv-polarity-low = <0>;
+fpd3-mode = "uyyv";
+serializer = "max96705";
+
+size = <1280 720>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <640 320>;
+
+view1-fmt = <1>;
+view1-size = <1280 720>;
+
+view2-fmt = <0>;
+view2-size = <320 180>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0x300>;
+
+
+

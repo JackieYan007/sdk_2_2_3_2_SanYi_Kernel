@@ -1,0 +1,29 @@
+config SPI_BST
+	tristate "DesignWare SPI controller core support"
+	help
+	  general driver for SPI controller core from BST
+
+config QSPI_BST
+	tristate "BST QSPI controller core support"
+	help
+	  general driver for QSPI controller core from BST
+
+config QSPI_BST_MMIO
+	tristate "Memory-mapped io interface driver for BST QSPI core"
+	depends on QSPI_BST
+
+
+config SPI_BST_MMIO
+	tristate "Memory-mapped io interface driver for BST SPI core"
+	depends on SPI_BST
+
+
+config QSPI_BST
+	tristate "BST QSPI controller core support"
+	help
+	  general driver for QSPI controller core from BST
+
+config QSPI_BST_MMIO
+	tristate "Memory-mapped io interface driver for BST QSPI core"
+	depends on QSPI_BST
+

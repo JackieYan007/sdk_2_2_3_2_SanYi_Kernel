@@ -1,0 +1,48 @@
+#
+#
+# (C) COPYRIGHT ARM Limited. All rights reserved.
+#
+# This program is free software and is provided to you under the terms of the
+# GNU General Public License version 2 as published by the Free Software
+# Foundation, and any use by you of this program is subject to the terms
+# of such GNU licence.
+#
+# A copy of the licence is included with the program, and can also be obtained
+# from Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# Boston, MA  02110-1301, USA.
+#
+#
+
+import os
+
+Import( 'driver_env' )
+myEnv = driver_env.Clone()
+
+if( (myEnv['arch'] == 'x86_32') or (myEnv['arch'] == 'x86_64') ):
+    myEnv.Append( CPPPATH = ['#/kernel/drivers/video/arm/v5xx/resource/',
+                                                   '#/kernel/drivers/video/arm/v5xx/external/',
+                                                   '#/emul/emul/emul/',
+                                                   '#/emul/',
+                                                   '#/fw/include',
+                                                   '#kernel/drivers/video/arm/v5xx/resource/machine'])
+
+    myEnv.Append(CPPDEFINES=['MVE_LOG_ALOG_ENABLE'])
+
+    if(myEnv['unit'] == '0'):
+        myEnv.Append(CPPDEFINES=['SCHEDULER_MODE_IDLE_SWITCHOUT=1'])
+    else:
+        myEnv.Append(CPPDEFINES=['SCHEDULER_MODE_IDLE_SWITCHOUT=0'])
+
+    if(myEnv['power_saving_mode'] == 'clock_gating'):
+        myEnv.Append(CPPDEFINES=['DISABLE_DVFS=1'])
+
+    sources = ['mve_rsrc_irq.c', 'mve_rsrc_register.c', 'mve_rsrc_scheduler.c', 'mve_rsrc_mem_frontend.c', 'mve_rsrc_pm.c',
+               'mve_rsrc_circular_buffer.c', 'mve_rsrc_mem_cache.c', 'mve_rsrc_mem_dma.c', 'mve_rsrc_mem_dma_uncached.c', 'mve_rsrc_log.c',
+               'mve_rsrc_dvfs.c']
+
+    sMVEDriverLib = myEnv.StaticLibrary(
+        os.path.join( "$STATIC_LIB_PATH" , "mve_rsrc" ),
+        sources
+    )
+
+    myEnv.LibTarget( "mve_rsrc", sMVEDriverLib )

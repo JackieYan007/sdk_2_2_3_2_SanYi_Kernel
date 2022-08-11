@@ -1,0 +1,192 @@
+/*
+* clock driver for BST A1000B
+* This file contains proprietary information that is the sole intellectual 
+* property of Black Sesame Technologies, Inc. and its affiliates. 
+* No portions of this material may be reproduced in any 
+* form without the written permission of: 
+* Black Sesame Technologies, Inc. and its affiliates 
+* 2255 Martin Ave. Suite D
+* Santa Clara, CA 95050 
+* Copyright @2016: all right reserved. 
+*/
+
+#ifndef _CLOCK_BST_A1000B_H
+#define _CLOCK_BST_A1000B_H
+
+#define MAIN_OSC_CLK                                        (0)
+#define CLK_1400_CPUCORE                                    (1)
+#define LB_CPU_GCLK                                         CLK_1400_CPUCORE
+#define CLK_DSU                                             (2)
+#define LB_CPU_DSU_GCLK                                     CLK_DSU
+#define CLK_CPU_ACE                                         (3)
+#define LB_CPU_ACE_GACLK                                    CLK_CPU_ACE
+#define CLK_CPU_PPI_ETR                                     (4)
+#define LB_CPU_PPI_ETR_GACLK                                CLK_CPU_PPI_ETR
+//#define CLK_100_SYSBUS_APB                                (5)
+//#define LB_MATRIX_CORESIGHT_CPU_GPCLK                     (6)
+//#define LB_CPU_APB_GPCLK                                  (7)
+#define LB_LPDDR0_PLL_REF_CLK                               MAIN_OSC_CLK
+#define LB_LPDDR1_PLL_REF_CLK                               MAIN_OSC_CLK
+#define LB_LPDDR0_S0_AXI_GACLK                              (12)
+#define LB_LPDDR0_S1_AXI_GACLK                              (13)
+#define LB_LPDDR0_S2_AXI_GACLK                              (14)
+#define LB_LPDDR0_S3_AXI_GACLK                              (15)
+#define LB_LPDDR1_S0_AXI_GACLK                              (16)
+#define LB_LPDDR1_S1_AXI_GACLK                              (17)
+#define LB_LPDDR1_S2_AXI_GACLK                              (18)
+#define LB_LPDDR1_S3_AXI_GACLK                              (19)
+#define LB_LPDDR0_GPCLK                                     (20)
+#define LB_LPDDR1_GPCLK                                     (21)
+#define LB_GMAC0_WCLK                                       (22)
+#define LB_GMAC1_WCLK                                       (23)
+#define LB_GMAC0_PTP_CLK                                    (24)
+#define LB_GMAC1_PTP_CLK                                    (25)
+#define LB_GMAC0_AXIM_GACLK                                 (26)
+#define LB_GMAC1_AXIM_GACLK                                 (27)
+#define LB_GMAC0_APB_S_GPCLK                                (28)
+#define LB_GMAC1_APB_S_GPCLK                                (29)
+//#define CLK_GMAC_AXI                                      (30) 
+//#define LB_GMAC_NIC2X1_GACLK                              CLK_GMAC_AXI
+#define LB_USB3_SUSPEND_CLK                                 (32)
+#define LB_USB3_REF_ALT_CLK                                 (33)
+#define LB_USB3_AXI_GACLK                                   (34)
+#define LB_USB3_APB_GPCLK                                   (35)
+#define LB_USB2_AHB_GHCLK                                   (36)
+#define LB_USB2_APB_GPCLK                                   (37)
+#define LB_USB2_REF_ALT_CLK                                 (38)
+#define LB_SDEMMC0_W_BCLK                                   (39)
+#define LB_SDEMMC0_GHCLK                                    (40)
+#define LB_SDEMMC1_W_BCLK                                   (41)
+#define LB_SDEMMC1_GHCLK                                    (42)
+#define LB_PCIE_REF_ALT_CLK_P                               (43)
+#define LB_PCIE_AUX_CLK                                     (44)
+#define LB_PCIE_AXI_GACLK                                   (45)
+#define LB_PCIE_APB_GPCLK                                   (46)
+//#define LB_MATRIX_SYSNOC_USB_SD_NIC4X1_400_GHCLK          (47)
+//#define LB_SDEMMC0_AHB_GHCLK                              (48)
+//#define LB_SDEMMC1_AHB_GHCLK                              (49)
+#define LB_GDMA_AHB_GHCLK                                   (50)
+//#define LB_MATRIX_SYSNOC_USB_SD_NIC1X5_200_GHCLK          (51)
+#define LB_MIPI0_PHY_CFG_CLK                                (52)
+#define LB_MIPI1_PHY_CFG_CLK                                (53)
+#define LB_MIPI2_PHY_CFG_CLK                                (54)
+#define LB_MIPI3_PHY_CFG_CLK                                (55)
+#define LB_MIPI0_APB_CFG_GPCLK                              (56)
+#define LB_MIPI1_APB_CFG_GPCLK                              (57)
+#define LB_MIPI2_APB_CFG_GPCLK                              (58)
+#define LB_MIPI3_APB_CFG_GPCLK                              (59)
+//#define CLK_200_SYSNOC_SAFETYNOC_AXI                      (60)
+//#define LB_SYSNOC_SAFETYNOC_CLK_200_AXI_GACLK             CLK_200_SYSNOC_SAFETYNOC_AXI
+#define LB_GDMA_CORE_CLK                                    (60)
+#define LB_GDMA_AXI_GACLK                                   (61)
+#define LB_GPU_GWCLK                                        (62)
+#define LB_GPU_APB_S_GPCLK                                  (63)
+#define LB_GPU_CPUNOC_NIC2X1_AXI_GACLK                      (64)
+#define LB_NET_AXI_GACLK                                    (65)
+#define LB_NET_DSPCORE_AXI_GACLK                            (66)
+#define LB_NET_NOC_AXIM_GACLK                               (67)
+#define LB_NET_NOC_AXIS_GACLK                               (68)
+#define LB_CV_AXIM0_GACLK                                   (69)
+#define LB_CV_AXIM1_GACLK                                   (70)
+#define LB_CV_AXIS_GACLK                                    (71)
+//#define LB_MATRIX_CORENOC_VSP_NIC3X1_400_GACLK            (72)
+#define LB_ISP_AXI_GACLK                                    (73)
+//#define LB_MATRIX_CLK_800_CORENOC_GWCLK                   (74)
+//#define LB_MATRIX_CLK_400_CORENOC_GWCLK                   (75)
+#define CLK_400_SYSBUS_AXI                                  (76)
+//#define LB_MATRIX_SYSNOC_CORENOC_400_GACLK                CLK_400_SYSBUS_AXI
+#define LB_CODEC_AXI_GACLK                                  (78)
+#define CLK_100_SYSBUS_APB                                  (79)
+//#define LB_MATRIX_CPU_CSR_GPCLK                           clk_100_sysbus_apb
+#define LB_MATRIX_CORESIGHT_CV_GPCLK                        CLK_100_SYSBUS_APB
+#define LB_MATRIX_CORESIGHT_NET_GPCLK                       CLK_100_SYSBUS_APB
+//#define LB_MATRIX_SYSNOC_CPUNOC_400_GACLK                 CLK_400_SYSBUS_AXI
+//#define CLK_400_CPUNOC_WORK                               (80)
+//#define CLK_800_CPUNOC_WORK                               (81)
+//#define LB_MATRIX_CLK_400_CPUNOC_GWCLK                    CLK_400_CPUNOC_WORK
+//#define LB_MATRIX_CLK_800_CPUNOC_GWCLK                    CLK_800_CPUNOC_WORK
+#define LB_CODEC_APB_GPCLK                                  (80)
+#define LB_CV_CORE_CLK                                      (81)
+//#define CLK_400_SYSNOC_WORK                               (82)
+//#define LB_MATRIX_CLK_400_SYSNOC_GWCLK                    CLK_400_SYSNOC_WORK
+//#define LB_MATRIX_SYSNOC_APB0_S_GPCLK                     clk_100_sysbus_apb
+//#define LB_MATRIX_SYSNOC_APB1_S_GPCLK                     clk_100_sysbus_apb
+#define LB_MATRIX_SYSCTRL_APB_S_GPCLK                       (82)
+//#define LB_MATRIX_PMM_REG_APB_S_GPCLK                     (83)
+//#define LB_MATRIX_TOP_CRM_APB_S_GPCLK                     clk_100_sysbus_apb
+//#define LB_TEMP_25M_CLK                                   (85)
+#define LB_MATRIX_IPC_APB_S_GPCLK                           (84)
+#define LB_VSP_DISP_CLK                                     (85)
+#define CLK_200_SYSBUS_AHB                                  (86)
+#define LB_VSP_AXI_GACLK                                    (87)
+#define LB_VSP_AHB_GHCLK                                    (88)
+#define LB_MATRIX_CORENOC_VSP_NIC3X1_400_GACLK              (89)
+//#define LB_ISP_CSI0_CLK_I                                 (93)
+//#define LB_ISP_CSI1_CLK_I                                 (94)
+//#define LB_ISP_CSI2_CLK_I                                 (95)
+//#define LB_ISP_CSI3_CLK_I                                 (96)
+#define LB_ISP_AHB_GHCLK                                    (92)
+#define LSP0_WCLK                                           (93)
+#define LSP1_WCLK                                           (94)
+#define LSP0_PCLK                                           (95)
+#define LSP1_PCLK                                           (96)
+#define LB_QSPI0_GHCLK                                      (98)
+#define LB_QSPI0_GWCLK                                      (99)
+#define LB_QSPI1_GHCLK                                      (100)
+#define LB_QSPI1_GWCLK                                      (101)
+#define LSP0_I2C0_W_GCLK                                    (102)
+#define LSP0_I2C1_W_GCLK                                    (103)
+#define LSP0_I2C2_W_GCLK                                    (104)
+#define LSP0_UART0_W_GCLK                                   (105)
+#define LSP0_UART1_W_GCLK                                   (106)
+#define LSP0_TIMER0_W_GCLK                                  (107)
+#define LSP0_TIMER1_W_GCLK                                  (108)
+#define LSP0_SPI0_W_GCLK                                    (109)
+#define I2SM_CLKOUT                                         (110)
+#define LSP0_WDT0_W_GCLK                                    (111)
+#define LSP0_WDT1_W_GCLK                                    (112)
+#define LSP0_CAN0_W_GCLK                                    (113)
+#define LSP0_CAN1_W_GCLK                                    (114)
+#define LSP0_I2C0_P_GCLK                                    (115)
+#define LSP0_I2C1_P_GCLK                                    (116)
+#define LSP0_I2C2_P_GCLK                                    (117)
+#define LSP0_I2SM_P_GCLK                                    (118)
+#define LSP0_GPIO0_P_GCLK                                   (119)
+#define LSP0_GPIO_DB_DIV_CLK                                (120)
+#define LSP0_WDT0_P_GCLK                                    (121)
+#define LSP0_WDT1_P_GCLK                                    (122)
+#define LSP0_UART0_P_GCLK                                   (123)
+#define LSP0_UART1_P_GCLK                                   (125)
+#define LSP0_SPI0_P_GCLK                                    (124)
+#define LSP0_CAN0_P_GCLK                                    (126)
+#define LSP0_CAN1_P_GCLK                                    (127)
+#define LSP0_TIMER_P_GCLK                                   (128)
+#define LSP1_I2C3_W_GCLK                                    (129)
+#define LSP1_I2C4_W_GCLK                                    (130)
+#define LSP1_I2C5_W_GCLK                                    (131)
+#define LSP1_UART1_W_GCLK                                   (132)
+#define LSP1_UART0_W_GCLK                                   (133)
+#define LSP1_TIMER2_W_GCLK                                  (134)
+#define LSP1_TIMER3_W_GCLK                                  (135)
+#define LSP1_SPI1_W_GCLK                                    (136)
+//#define I2SS_CLKOUT                                       (137)
+#define LSP1_WDT2_W_GCLK                                    (138)
+#define LSP1_WDT3_W_GCLK                                    (139)
+#define LSP1_CAN_W_GCLK                                     (140)
+#define LSP1_I2C3_P_GCLK                                    (141)
+#define LSP1_I2C4_P_GCLK                                    (142)
+#define LSP1_I2C5_P_GCLK                                    (143)
+#define LSP1_TIMER1_P_GCLK                                  (144)
+#define LSP1_WDT2_P_GCLK                                    (145)
+#define LSP1_WDT3_P_GCLK                                    (146)
+#define LSP1_UART0_P_GCLK                                   (147)
+#define LSP1_UART1_P_GCLK                                   (148)
+#define LSP1_CAN_P_GCLK                                     (149)
+#define LSP1_SPI1_P_GCLK                                    (150)
+#define LSP1_I2SS_P_GCLK                                    (151)
+#define LSP1_GPIO1_P_GCLK                                   (152)
+#define LSP1_GPIO_DB_DIV_CLK                                (153)
+
+#define CLK_MAX                                             (154)
+
+#endif /* _CLOCK_BST_A1000B_H */

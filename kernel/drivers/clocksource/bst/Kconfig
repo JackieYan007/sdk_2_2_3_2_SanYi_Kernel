@@ -1,0 +1,9 @@
+config BST_APB_TIMER
+	bool "BST APB timer driver" if COMPILE_TEST
+	help
+	  Enables the support for the bst_apb timer.
+
+config BST_APB_TIMER_OF
+	bool "BST APB timer OF driver"
+	select BST_APB_TIMER
+	select TIMER_OF

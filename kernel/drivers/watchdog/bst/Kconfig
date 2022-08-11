@@ -1,0 +1,17 @@
+config BST_WATCHDOG
+	tristate "BST watchdog"
+	depends on HAS_IOMEM
+	select WATCHDOG_CORE
+	help
+	  Say Y here if to include support for the BST watchdog 
+	  timer found in many chips.
+	  To compile this driver as a module, choose M here: the
+	  module will be called bst_wdt.
+
+config BST_WATCHDOG_DEBUG
+	bool "bst watchdog test"
+	depends on BST_WATCHDOG
+
+config BST_AUTOFEED_A55_WATCHDOG
+        bool "bst create kthread auto feed a55 watchdog"
+        depends on BST_WATCHDOG

@@ -1,0 +1,325 @@
+/*
+ * U-Boot uImage source file with multiple kernels, ramdisks and FDT blobs
+ */
+
+/dts-v1/;
+
+/ {
+	description = "Various kernels, ramdisks and FDT blobs";
+	#address-cells = <1>;
+
+	images {
+		kernel {
+			description = "Image.gz linux-5.10.59 from Bst A1000";
+			data = /incbin/("./build/arch/arm64/boot/Image.gz");
+			type = "kernel";
+			arch = "arm64";
+			os = "linux";
+			compression = "gzip";
+			load = <0x84000000>;
+			entry = <0x84000000>;
+			hash-1 {
+				algo = "md5";
+			};
+			hash-2 {
+				algo = "sha1";
+			};
+		};
+
+		fdt-evb {
+			description = "bsta1000-evb fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-evb.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-evbl {
+			description = "bsta1000-evbl fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-evbl.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+
+		fdt-fada {
+			description = "bsta1000-fada fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-fada.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-fadb {
+			description = "bsta1000-fadb fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-fadb.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-fad3a {
+			description = "bsta1000-fada fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-fad3a.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-fad3b {
+			description = "bsta1000-fadb fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-fad3b.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};		
+		fdt-fadm {
+			description = "bsta1000-fadm fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-fadm.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-fads {
+			description = "bsta1000-fads fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-fads.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-fawa {
+			description = "bsta1000-fawa fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-fawa.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-fawb {
+			description = "bsta1000-fawb fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-fawb.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-ec {
+			description = "bsta1000-ec fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-ec.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+		
+		fdt-ecv3 {
+			description = "bsta1000-ecv3 fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-ecv3.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-pat {
+			description = "bsta1000-pat fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-pat.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+		
+		fdt-ecu {
+			description = "bsta1000-ecu fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-ecu.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-apa {
+			description = "bsta1000-apa fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-apa.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-jac20 {
+			description = "bsta1000-jac20 fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-jac20.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+		fdt-jac21 {
+			description = "bsta1000-jac21 fdt";
+			data = /incbin/("./build/arch/arm64/boot/dts/bst/bsta1000-jac21.dtb");
+			type = "flat_dt";
+			arch = "arm64";
+			compression = "none";
+			hash-1 {
+				algo = "crc32";
+			};
+		};
+
+
+	};
+
+	configurations {
+		default = "config-evb";
+
+		config-evb {
+			description = "bsta1000 evb configuration";
+			kernel = "kernel";
+			fdt = "fdt-evb";
+		};
+
+		config-evbl {
+			description = "bsta1000 evbl configuration";
+			kernel = "kernel";
+			fdt = "fdt-evbl";
+		};
+		
+		config-fada {
+			description = "bsta1000 fada configuration";
+			kernel = "kernel";
+			fdt = "fdt-fada";
+		};
+
+		config-fadb {
+			description = "bsta1000 fadb configuration";
+			kernel = "kernel";
+			fdt = "fdt-fadb";
+		};
+
+		config-fad3a {
+			description = "bsta1000 fadv3a configuration";
+			kernel = "kernel";
+			fdt = "fdt-fad3a";
+		};
+
+		config-fad3b {
+			description = "bsta1000 fadv3b configuration";
+			kernel = "kernel";
+			fdt = "fdt-fad3b";
+		};
+
+		config-fadm {
+			description = "bsta1000 fadm configuration";
+			kernel = "kernel";
+			fdt = "fdt-fadm";
+		};
+
+		config-fads {
+			description = "bsta1000 fads configuration";
+			kernel = "kernel";
+			fdt = "fdt-fads";
+		};
+
+		config-fawa {
+			description = "bsta1000 fawa configuration";
+			kernel = "kernel";
+			fdt = "fdt-fawa";
+		};
+
+		config-fawb {
+			description = "bsta1000 fawb configuration";
+			kernel = "kernel";
+			fdt = "fdt-fawb";
+		};
+
+		config-ec {
+			description = "bsta1000 edage computer configuration";
+			kernel = "kernel";
+			fdt = "fdt-ec";
+		};
+		
+		config-ecv3 {
+			description = "bsta1000 edage computer v3 configuration";
+			kernel = "kernel";
+			fdt = "fdt-ecv3";
+		};
+
+		config-pat {
+			description = "bsta1000 pat configuration";
+			kernel = "kernel";
+			fdt = "fdt-pat";
+		};
+		
+		config-ecu {
+			description = "bsta1000 ecu configuration";
+			kernel = "kernel";
+			fdt = "fdt-ecu";
+		};
+		
+		config-apa {
+			description = "bsta1000 apa configuration";
+			kernel = "kernel";
+			fdt = "fdt-apa";
+		};
+		
+		config-jac20 {
+			description = "bsta1000 jac 2.0 configuration";
+			kernel = "kernel";
+			fdt = "fdt-jac20";
+		};
+
+		config-jac21 {
+			description = "bsta1000 jac 2.1 configuration";
+			kernel = "kernel";
+			fdt = "fdt-jac21";
+		};
+		
+	};
+};

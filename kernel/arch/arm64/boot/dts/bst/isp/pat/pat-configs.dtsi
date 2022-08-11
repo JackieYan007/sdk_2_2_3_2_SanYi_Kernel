@@ -1,0 +1,3 @@
+#include "../common/isp-csi2.dtsi"
+#include "pat-desers.dtsi"
+#include "pat-cameras.dtsi"

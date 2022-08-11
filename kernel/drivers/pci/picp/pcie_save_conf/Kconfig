@@ -1,0 +1,4 @@
+config BST_PSC
+	bool "PCIE Save Config Support"
+    depends on PCIE_BST && MTD_SPI_NOR
+

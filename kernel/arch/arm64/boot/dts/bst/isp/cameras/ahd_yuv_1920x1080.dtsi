@@ -1,0 +1,18 @@
+/*
+  ahd-yuv   1920x1080
+  view0:    1920x1080
+  view1:    -
+  view2:    -
+*/
+compatible = "bst,ahd-isp";
+data-type = <0x1e>;
+
+size = <1920 1080>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <1920 1080>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0x400>;

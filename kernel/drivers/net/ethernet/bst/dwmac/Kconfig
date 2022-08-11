@@ -1,0 +1,28 @@
+config BST_DWMAC_ETH
+	tristate "bst dwmac 10/100/1000/EQOS Ethernet driver"
+	depends on HAS_IOMEM && HAS_DMA
+	select MII
+	select PHYLIB
+	select CRC32
+	imply PTP_1588_CLOCK
+	select RESET_CONTROLLER
+	help
+	  This is the driver for the Ethernet IPs built around a
+	  Synopsys IP Core.
+
+if BST_DWMAC_ETH
+
+config BST_GMAC_PLATFORM
+	tristate "BST_GMAC Platform bus support"
+	depends on BST_DWMAC_ETH
+	default y
+	help
+	  This selects the platform specific bus support for the BST GMAC driver.
+	  This is the driver used on several SoCs:
+	  BST A1000;BST A800.
+	  
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+endif

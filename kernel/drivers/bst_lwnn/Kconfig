@@ -1,0 +1,12 @@
+
+config BST_LWNN
+    tristate "Support BST LWNN"
+    depends on ARM64
+    depends on HAS_DMA
+    select BST_LWNN_FW
+    help
+        BST LWNN driver is included
+    default m
+
+config BST_LWNN_FW
+    bool "BST LWNN Runtime Firmware"

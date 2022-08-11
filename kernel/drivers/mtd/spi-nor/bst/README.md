@@ -1,0 +1,2 @@
+# bst-mtd-spi-nor
+

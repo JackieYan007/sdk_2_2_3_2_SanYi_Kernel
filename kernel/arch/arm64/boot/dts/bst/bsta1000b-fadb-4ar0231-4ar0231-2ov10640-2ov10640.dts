@@ -1,0 +1,806 @@
+/dts-v1/;
+
+/memreserve/ 0x18000000 0x100000;
+
+#include "bsta1000b.dtsi"
+#include "isp/a1000b-fad/fadb-configs-4ar0231-4ar0231-2ov10640-2ov10640.dtsi"
+
+/ {
+	compatible = "bst,a1000b";
+	model = "BST A1000B FAD-B";
+
+	chosen {
+		bootargs = "earlycon=uart8250,mmio32,0x20008000 console=ttyS0,115200n8 memreserve=64M@0xf8000000 rdinit=/sbin/init root=/dev/ram rw init=/linuxrc rodata=n";
+		stdout-path = "uart0";
+	};
+
+	aliases {
+		//serial0 = "/amba_apu@0/serial@20008000";
+	};
+	
+	memory@80000000 {
+		device_type = "memory";
+		reg = <0x00000000 0x80000000 0x00000000 0x70000000>;
+	};
+	memory@198000000 {
+		device_type = "memory";
+		reg = <0x00000001 0x98000000 0x00000000 0x58000000>;
+	};
+
+    memory1@18000000 {
+        device_type = "memory";
+        reg = <0x0 0x18000000 0x0 0x100000>;
+    };
+
+    reserved-memory {
+        #address-cells = <2>;
+        #size-cells = <2>;
+        ranges;
+
+		pcie_ctrl_reserved: pcie_ctrl@8fd00000 {
+			compatible = "bst,pcie-ctrl";
+			reg = <0x0 0x8fd00000 0x0 0x100000>;
+			no-map;
+		};
+
+		bst_atf_reserved: bst_atf@8b000000 {
+			compatible = "shared-dma-pool";
+			reg = <0x0 0x8b000000 0x0 0x2000000>;
+			no-map;
+		};
+
+		bst_tee_reserved: bst_tee@8fec0000 {
+			compatible = "shared-dma-pool";
+			reg = <0x0 0x8fec0000 0x0 0x40000>;
+			no-map;
+		};
+
+		bst_ipc_reserved: bstn_cma@8ff00000 {
+			compatible = "shared-dma-pool";
+			reg = <0x0 0x8ff00000 0x0 0x100000>;
+			no-map;
+		};
+
+		bstn_firmware_reserved: bstn@90000000 {
+			compatible = "bst,bstn";
+			reg = <0x0 0x90000000 0x0 0x2000000>;
+			no-map;
+		};
+
+		bst_lwnn_dsp0_firmware_reserved: bst_lwnn@92000000 {
+			compatible = "bst,bst_lwnn";
+			reg = <0x0 0x92000000 0x0 0x2000000>;
+			no-map;
+		};
+
+		bst_lwnn_dsp1_firmware_reserved: bst_lwnn@94000000 {
+			compatible = "bst,bst_lwnn";
+			reg = <0x0 0x94000000 0x0 0x2000000>;
+			no-map;
+		};
+
+		bst_cv_firmware_reserved: bst_cv@96000000 {
+			compatible = "bst,bst_cv";
+			reg = <0x0 0x96000000 0x0 0x4000000>;
+			no-map;
+		};
+
+		bst_cv_reserved: bst_cv_cma@9a000000 {
+			compatible = "shared-dma-pool";
+			reg = <0x0 0x9a000000 0x0 0x2000000>;
+			align-shift = <8>;
+			no-map;
+		};
+
+		/* reserved for vsp fw code */
+		bst_vsp_fw_code_reserved: vsp@0x9c000000 {
+			compatible = "shared-dma-pool";
+			reg = <0x0 0x9c000000 0x0 0x1000000>;
+			no-map;
+		};
+
+		/* reserved for vsp fw data */
+		vsp_fw_data_reserved: vsp_fw@0x9d000000 {
+			reg = <0x0 0x9d000000 0x0 0x4000000>;
+			no-map;
+		};
+
+		/* reserved for isp fw code */
+		bst_isp_fw_code_reserved: bst_isp@0xa1000000 {
+			compatible = "shared-dma-pool";
+			reg = <0x0 0xa1000000 0x0 0x1000000>;
+			no-map;
+		};
+
+		/* reserved for isp fw data */
+		isp_fw_data_reserved: bst_isp_fw@0xa2000000 {
+			reg = <0x0 0xa2000000 0x0 0x10000000>;
+			no-map;
+		};
+
+		/* coreip public memory pool */
+		coreip_reserved: coreip_pub_cma@0xb2000000 {
+			compatible = "shared-dma-pool";
+            align-shift = <8>;
+			reg = <0x0 0xb2000000 0x0 0x36000000>;
+			reusable;
+		};
+
+		/* reserved for pmu noc */
+		pmu_noc_reserved: pmu_noc@0xe8000000 {
+			reg = <0x0 0xe8000000 0x0 0x800000>;
+			no-map;
+		};
+
+		bst_canfd_reserved: canfd@0xe8800000 {
+			compatible = "shared-dma-pool";
+			reg = <0x0 0xe8800000 0x0 0x800000>;
+			reusable;
+		};
+
+		/* reserved for ddr0 high 256M */
+		bst_ddr0_reserved: ddr0@0xf0000000 {
+			reg = <0x0 0xf0000000 0x0 0x10000000>;
+			no-map;
+		};
+
+		/* reserved for ddr1 high 256M */
+		bst_ddr1_reserved: ddr1@0x1f0000000 {
+			reg = <0x1 0xf0000000 0x0 0x10000000>;
+			no-map;
+		};
+	};
+
+    //ipc
+    mbox-poll-clients{
+        compatible = "bst,ipc-mbox-client";
+        reg = <0xfec00020 0x8>,     // dsp
+            <0x52030090 0x8> ,      // ISP
+            <0x53090008 0x8>,       // VSP
+            <0xfec00028 0x8>;       // R5 core0
+
+        #mbox-cells = <0x1>;
+        phandle = <0xe>;
+    };
+    bstn-mbox {
+        compatible = "bstn,bstn-mbox";
+        // zcu102+vu440
+        reg =   <0x0 0x33102000 0x0 0x2000>,
+                      <0x0 0x33100000 0x0 0x2000>,
+                      <0x0 0x80000000 0x0 0x4>,
+                      <0x0 0x80002000 0x0 0x4>;
+        fpga-reset = <1>;
+        memory-region = <&bst_ipc_reserved>;
+        // id = <0x0>;
+        assigned-mem-size = <0x1000>;
+        interrupt-parent = <&gic400>;
+        interrupts =    <
+                        GIC_SPI 113 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)
+                        GIC_SPI 114 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)
+                        GIC_SPI 115 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)
+                        GIC_SPI 116 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)
+                        GIC_SPI 117 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)
+                        GIC_SPI 118 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)
+                        GIC_SPI 119 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)
+                        GIC_SPI 120 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)>;
+
+        #mbox-cells = <0x1>;
+        phandle = <0xea>;
+    };
+    
+    bstn@0 {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,bstn-a1000b,cma";
+        reg = <0x0 0x50020000 0x0 0x100
+            0x0 0x90000000 0x0 0x2000000>;
+        memory-region = <&coreip_reserved>;
+        //the following two properties must be consistent with bstn_reserved
+        rmem-base = <0x0 0xb2000000>;
+        rmem-size = <0x0 0x36000000>;
+        id = <0x0>;
+        assigned-mem-size = <0x1000>;
+        //the offset between the DDR physical address and the corresponding device bus address
+        bus-offset = <0x0 0x0>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x8>;
+        firmware = "bstn_dsp_rtos.rbf";
+    };
+
+    bst_cv@0x51030000 {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,bst_cv,cma";
+        reg =   <0x0 0x51030000 0x0 0x100
+                0x0 0x96000000 0x0 0x2000000
+                0x0 0x98000000 0x0 0x2000000
+                0x0 0x92000000 0x0 0x2000000
+                0x0 0x94000000 0x0 0x2000000>;
+        memory-region = <&bst_cv_reserved>;
+        assigned-mem-size = <0x4000>;
+        //the offset between the DDR physical address and the corresponding device bus address
+        bus-offset = <0x0 0x0>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x9>;
+        dsp-num = <0x4>;
+        ipc-register-addr = <0x8ff00000>;
+        dsp@0x96000000 {
+            index = <0x0>;
+            firmware = "bst_cv_dsp_rt.rbf";
+            assigned-mem-size = <0x1000>;
+            rt-init-addr = <0x967ff000>;
+            //ipc source ARM core index of the CV driver
+            ipc-src-core = <0x3>;
+        };
+        dsp@0x98000000 {
+            index = <0x1>;
+            firmware = "bst_cv_dsp1_rt.rbf";
+            assigned-mem-size = <0x1000>;
+            rt-init-addr = <0x987ff000>;
+            //ipc source ARM core index of the CV driver
+            ipc-src-core = <0x3>;
+        };
+        dsp@0x92000000 {
+            index = <0x2>;
+            firmware = "bst_cv_dsp2_rt.rbf";
+            assigned-mem-size = <0x1000>;
+            rt-init-addr = <0x927ff000>;
+            //ipc source ARM core index of the CV driver
+            ipc-src-core = <0x3>;
+        };
+        dsp@0x94000000 {
+            index = <0x3>;
+            firmware = "bst_cv_dsp3_rt.rbf";
+            assigned-mem-size = <0x1000>;
+            rt-init-addr = <0x947ff000>;
+            //ipc source ARM core index of the CV driver
+            ipc-src-core = <0x3>;
+        };
+    };
+
+    bst_gwarp_scaler@0x51060000 {
+        #address-cells = <2>;
+		#size-cells = <2>;
+        compatible = "bst,bst_gwarp_scaler,cma";
+        reg =   <
+                0x0 0x51030000 0x0 0x100 //cv_base
+                0x0 0x51050000 0x0 0x100 //cv_scaler
+                0x0 0x51060000 0x0 0x100 //cv_gwarp
+                >;
+        memory-region = <&coreip_reserved>;
+        id = <0x0>;
+        bus-offset = <0x0 0x0>;
+        assigned-mem-size = <0x1000>;
+        interrupt-parent = <&gic400>;
+        interrupts = <GIC_SPI 155 (IRQ_TYPE_LEVEL_HIGH)>;
+        interrupt-names = "bst_cv_irq";
+    };
+
+    bare_cv@51030000 {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,bare_cv,cma";
+        reg =   <0x0 0x51030000 0x0 0x100
+                0x0 0x96000000 0x0 0x1000000
+                0x0 0x98000000 0x0 0x1000000
+                0x0 0x97000000 0x0 0x1000000
+                0x0 0x99000000 0x0 0x1000000
+                >;
+        memory-region = <&bst_cv_reserved>;
+        id = <0x1>;
+        assigned-mem-size = <0x2000000 0x2000000 0x2000000 0x2000000>;
+        bus-offset = <0x0 0x0>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x9>;
+        firmware = "bstcv0.rbf", "bstcv1.rbf", "bstcv2.rbf", "bstcv3.rbf";
+    };
+    
+    bst_lwnn@0x51030000 {
+        compatible = "bst,bst_lwnn-a1000b,cma";
+        reg =   <0x0 0x51030000 0x0 0x100
+                0x0 0x92000000 0x0 0x2000000
+                0x0 0x94000000 0x0 0x2000000>;
+        memory-region = <&coreip_reserved>;
+        //the offset between the DDR physical address and the corresponding device bus address
+        bus-offset = <0x0 0x0>;
+        mbox-names = "bst-lwnn-mbox";
+
+        dsp-num = <0x2>;
+        ipc-register-addr = <0x8ff00000>;
+        dsp@0x92000000 {
+            index = <0x2>;
+            firmware = "bst_lwnn_dsp2_rt.rbf";
+            assigned-mem-size = <0x2000>;
+            rt-init-addr = <0x927ff000>;
+            //ipc source ARM core index of the LWNN driver
+            ipc-src-core = <0x6>;
+        };
+        dsp@0x94000000 {
+            index = <0x3>;
+            firmware = "bst_lwnn_dsp3_rt.rbf";
+            assigned-mem-size = <0x2000>;
+            rt-init-addr = <0x947ff000>;
+            //ipc source ARM core index of the LWNN driver
+            ipc-src-core = <0x0>;
+        };    
+    };
+
+	ipc_vsp@0 {
+		#address-cells = <0x2>;
+		#size-cells = <0x2>;
+		compatible = "bst,bst-vsp-ipc";
+		reg = <0x0 0x9c000000 0x0 0x100000
+				0x0 0x9c100000 0x0 0x80000
+				0x0 0x9c180000 0x0 0x80000
+				0x0 0x53090004 0x0 0x4
+				0x0 0x53090010 0x0 0xc
+				0x0 0x33102fbc 0x0 0x4
+				0x0 0x9d000000 0x0 0x4000000>;
+		memory-region = <&bst_vsp_fw_code_reserved>;
+		mbox-names = "bstn-mbox"; // need
+		mboxes = <0xea 0x7>;
+	};
+
+	vsp@1 {
+		#address-cells = <0x2>;
+		#size-cells = <0x2>;
+		compatible = "bst,bst-vsp";
+		memory-region = <&coreip_reserved>;
+		assigned-mem-size = <0x1000>;
+
+                clocks = <&clkc LB_VSP_DISP_CLK>;
+                clock-names = "vout_display_clk";
+                output-format = "HDMI_YUV444";      //HDMI_YUV444, HDMI_RGB, RGB888(LVDS)
+                output-hsize = <1920>;              // for HDMI
+                output-vsize = <1080>;              // for HDMI
+                output-fresh = <60>;                // for HDMI
+	};
+
+       gmwarp@0 {
+		#address-cells = <0x2>;
+		#size-cells = <0x2>;
+		compatible = "bst,bst-gmwarp";
+		memory-region = <&coreip_reserved>;
+	};
+
+     encoder@0 {
+		#address-cells = <0x2>;
+		#size-cells = <0x2>;
+		compatible = "bst,bst-encoder";
+		memory-region = <&coreip_reserved>;
+     };
+
+    firmware {
+		optee {
+			compatible = "linaro,optee-tz";
+			method = "smc";
+            chip-number = <2>;
+		};
+	};
+
+    tee {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        reg = <0x0 0x18060000 0x0 0x20000>;
+        memory-region = <&bst_tee_reserved>;
+        mbox-names = "bstn-mbox";
+        chip-number = <2>;
+    };
+
+    ipc_arm0@0 {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,arm0";
+        reg = <0x4 0xfec00000 0x0 0x20 0x4 0x80000000 0x0 0x20000>;
+        memory-region = <&bst_ipc_reserved>;
+        //id = <0x0>;
+        //ipc-resource-id = <0>;   // ipc add, refer to mbox-poll-clients :reg <0>
+        assigned-mem-size = <0x1000>;
+        // bstn-offset = <0x4 0x0>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x0>;
+    };
+
+    ipc_arm3@3 {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,arm3";
+        reg = <0x4 0xfec10000 0x0 0x20 0x4 0x80000000 0x0 0x20000>;
+        memory-region = <&bst_ipc_reserved>;
+        // id = <0x1>;
+        //ipc-resource-id = <0>;   // ipc add, refer to mbox-poll-clients :reg <0>
+        assigned-mem-size = <0x1000>;
+        //bstn-offset = <0x4 0x0>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x3>;
+    };
+
+    ipc_arm2@2 {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,arm2";
+        reg = <0x4 0xfec10000 0x0 0x20 0x4 0x80000000 0x0 0x20000>;
+        memory-region = <&bst_ipc_reserved>;
+        // id = <0x1>;
+        //ipc-resource-id = <0>;   // ipc add, refer to mbox-poll-clients :reg <0>
+        assigned-mem-size = <0x1000>;
+        //bstn-offset = <0x4 0x0>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x2>;
+    };
+
+    ipc_arm1@1 {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,arm1";
+        reg = <0x4 0xfec10000 0x0 0x20 0x4 0x80000000 0x0 0x20000>;
+        memory-region = <&bst_ipc_reserved>;
+        //id = <0x1>;
+        //ipc-resource-id = <0>;   // ipc add, refer to mbox-poll-clients :reg <0>
+        assigned-mem-size = <0x1000>;
+        // bstn-offset = <0x4 0x0>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x1>;
+    };
+    ipc@0 {
+        #address-cells = <0x2>;
+        #size-cells = <0x2>;
+        compatible = "bst,ipc";
+        reg = <0x4 0xfec00000 0x0 0x20 0x4 0x80000000 0x0 0x20000>;
+        memory-region = <&bst_ipc_reserved>;
+        // id = <0x0>;
+        assigned-mem-size = <0x1000>;
+        // bstipc-offset = <0x4 0x0>;
+        mbox-names = "bstn-mbox";
+        mboxes = <0xea 0x5>;
+        //firmware = "dsp_rt.rbf";
+    };
+};
+
+&pinctrl {
+    status = "okay";
+    can0_transceiver_pinctrl: can0_transceiver_pinctrl {
+        mux {
+            pins = "pcie0_rstb";
+            function = "gpio";
+        };
+    };
+    can2_transceiver_pinctrl: can2_transceiver_pinctrl {
+        mux {
+            pins = "pcie1_rstb";
+            function = "gpio";
+        };
+    };
+};
+
+&uart0 {
+    status = "okay";
+};
+&uart1 {
+    status = "okay";
+};
+&uart2 {
+    status = "disable";
+};
+&uart3 {
+    status = "okay";
+};
+
+&i2c0 {
+    status = "okay";
+};
+&i2c1 {
+    status = "okay";
+};
+&i2c2 {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+    eeprom@50 {
+            compatible = "atmel,24c04";
+            reg = <0x50>;
+            pagesize = <16>;
+    };
+        
+    adv7513@39 {
+         compatible = "bst,adv7513";
+         reg = <0x39>;
+    };
+};
+&i2c3 {
+    status = "okay";   
+};
+&i2c4 {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+         eeprom@56 {
+                 compatible = "atmel,24c02";
+                 reg = <0x56>;
+                 pagesize = <16>;
+         };
+
+
+};
+&i2c5 {
+    status = "okay";
+};
+
+&gdma0 {
+    status = "okay";
+};
+
+&pcie_phy {
+    dmc-lane = <0x1>; /* bit0: 1=2x2ports, 0=1x4ports */
+    dmc-mode = <0x2>; /* bit1: 1=RC-mode, 0=EP-mode */
+    pcie-ctl0 = <1>;  /* Controller reset */
+    pcie-ctl1 = <1>;  /* Controller reset */
+    //inner-clk;
+    /*clocks= <&clkc LB_PCIE_REF_ALT_CLK_P>,
+            <&clkc LB_PCIE_AUX_CLK>,
+            <&clkc LB_PCIE_AXI_GACLK>,
+            <&clkc LB_PCIE_APB_GPCLK>;
+    clock-names = "ref_clk", "aux_clk", "axi_clk", "apb_clk";*/
+};
+
+&pcie0 {
+    status = "okay";
+    //reset-gpio = <&porth 18 0>; /* reset pcie0 gpio-242 */
+    max-link-speed = <3>;
+    num-lanes = <2>;
+};
+
+&pcie1 {
+    status = "okay";
+    //reset-gpio = <&porth 19 0>; /* reset pcie0 gpio-243 */  
+    max-link-speed = <3>;
+	num-lanes = <2>;
+    picp-ctl = "dma";
+    ob-memaddr-def = <&pcie_ctrl_reserved>;
+};
+
+&canfd0 {
+    status = "okay";
+    reset-gpios = <&porth 18 0>;
+    reset-active-high;
+    pinctrl-names = "default";
+	pinctrl-0 = <&can0_pinctrl &can0_transceiver_pinctrl>;
+    memory-region = <&bst_canfd_reserved>;
+};
+&canfd1 {
+    status = "okay";
+    pinctrl-names = "default";
+	pinctrl-0 = <&can1_pinctrl>;
+};
+&canfd2 {
+    status = "okay";
+    reset-gpios = <&porth 19 0>;
+    reset-active-high;
+    pinctrl-names = "default";
+	pinctrl-0 = <&can2_pinctrl &can2_transceiver_pinctrl>;
+};
+&gpio0 {
+    status = "okay";
+
+    /* gpio_special_func_pinctrl:gpio_num_29 gmac0 reset pin; debug_4 and debug_5 as gpio */
+    //pinctrl-0 = <gpio_special_func_pinctrl>;
+    pinctrl-0 = <&sdemmc0_pinctrl  &sdemmc1_pinctrl  &debug_pinctrl  &vout_pinctrl  &vin_pinctrl &ssd_pinctrl &gnss_pinctrl &fan_pinctrl>;
+};
+&gpio1 {
+    status = "okay";
+};
+           
+&gmac0 {
+    status = "okay";
+    mac-mode = "rgmii";
+    phy-handle = <&eth_phy0>;
+    extend-op = <3>;
+    pinctrl-names = "default";
+    pinctrl-0 = <&rgmii0_pinctrl>;
+    mdio {
+        compatible = "snps,dwmac-mdio";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        eth_phy0: eth_phy0@0 {
+            compatible = "marvell,88E1510", "ethernet-phy-id0141.0DD1", "ethernet-phy-ieee802.3-c22";
+            device_type = "ethernet-phy";
+            /* On - Link, Blink - Activity, Off - No Link - Dual LED mode*/
+            marvell,reg-init = <3 0x10 0 0x101e>;
+            max-speed = <1000>;
+            reg = <0x2>;
+            reset-gpios = <&porta 8 1>;
+            reset-assert-us = <20000>;
+            reset-deassert-us = <20000>;
+        };
+    };
+};
+
+
+&gmac1 {
+    status = "okay";
+    mac-mode = "rgmii";
+    phy-handle = <&eth_phy1>;
+    extend-op = <3>;
+    pinctrl-names = "default";
+    pinctrl-0 = <&rgmii1_pinctrl>;
+    mdio {
+        compatible = "snps,dwmac-mdio";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        eth_phy1: eth_phy1@1 {
+            compatible = "marvell,88Q2122", "ethernet-phy-id002B.0983", "ethernet-phy-ieee802.3-c45";
+			device_type = "ethernet-phy";
+			max-speed = <1000>;
+			reg = <0x1>;
+            reset-gpios = <&porta 9 1>;
+            reset-active-low;
+	        reset-assert-us = <20000>;
+	        reset-deassert-us = <20000>;
+		};
+    };
+};
+
+&qspi0 {
+    status = "okay";
+    //wp_mode;
+    qspi0-nor0@0 {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        spi-rx-bus-width = <1>;
+        spi-tx-bus-width = <1>;
+        compatible = "jedec,spi-nor";
+        status = "okay";
+        spi-max-frequency = <1000000>;
+        reg = <0>;
+        mode = <0>;
+
+        partition@0 {
+            reg = <0 0x1e00000>;
+            label = "nor0_part0";
+        };
+        partition@1e00000 {
+            reg = <0x1e00000 0x200000>;
+            label = "nor0_part1";
+        };
+    };
+};
+
+&spi0 {
+    status = "okay";
+    slave@0 {
+            compatible = "spidev";
+            reg = <0>;
+            spi-max-frequency = <400000>;
+    };
+};
+&spi1 {
+    status = "okay";
+    slave@0 {
+            compatible = "spidev";
+            reg = <0>;
+            spi-max-frequency = <400000>;
+    };
+};
+
+&watchdog0 {
+    status = "disable";
+};
+&watchdog1 {
+    status = "okay";
+};
+&watchdog2 {
+    status = "okay";
+};
+&watchdog3 {
+    status = "okay";
+};
+&watchdog4 {
+    status = "okay";
+};
+&watchdog5 {
+    status = "okay";
+};
+&watchdog6 {
+    status = "okay";
+};
+&watchdog7 {
+    status = "okay";
+};
+&watchdog8 {
+    status = "okay";
+};
+&watchdog9 {
+    status = "okay";
+};
+&watchdog10 {
+    status = "okay";
+};
+&watchdog11 {
+    status = "okay";
+};
+
+&ddr_ecc {
+    status = "okay";
+};
+
+&arm_pmu {
+    status = "okay";
+};
+
+&lsp0_pwm0 {
+	/* safety used lsp0-timer-ch0 */
+	/* must be disable */
+    status = "disable";
+};
+&lsp0_pwm1 {
+    status = "disable";
+};
+&lsp1_pwm0 {
+    status = "disable";
+};
+&lsp1_pwm1 {
+    status = "disable";
+};
+
+&a55_timer0 {
+    status = "disable";
+};
+
+&a55_timer1 {
+    status = "disable";
+};
+
+&usbdrd_dwc3 {
+    status = "okay";
+    powerctl-gpios = <&porta 11 GPIO_ACTIVE_HIGH>;
+    powerctl-fada-gpios = <&porta 27 GPIO_ACTIVE_HIGH>;
+    powerctl-fadb-gpios = <&porta 28 GPIO_ACTIVE_HIGH>;
+    powerctl-gnss-en = <&porta 31 GPIO_ACTIVE_HIGH>;
+    powerctl-gnss-reset = <&porta 12 GPIO_ACTIVE_HIGH>;
+    pinctrl-names = "default";
+	pinctrl-0 = <&usb3_pinctrl>;
+};
+
+&usb3_pinctrl {
+    mux {
+        pins =  "gpio_11";
+        function = "gpio";
+    };
+};
+
+&dwc3 {
+    status = "okay";
+};
+
+
+&mmc0 {
+    status = "okay";
+};
+
+&mmc1 {
+    status = "okay";
+};
+
+&i2s0 {
+    status = "disable";
+};
+
+&i2s1 {
+    status = "disable";
+};
+&thermal {
+    status = "okay";
+};
+&gpu {
+    status = "okay";
+};
+
+&codec {
+    status = "okay";
+};
+
+&pcie_vnet0 {
+    status = "ok";
+    extend-op = <17>;
+    memory-region = <&pcie_ctrl_reserved>;
+};

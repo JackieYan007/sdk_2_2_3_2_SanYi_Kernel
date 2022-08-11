@@ -1,0 +1,12 @@
+config BST_PMU
+	tristate "BST SoC PMU"
+	depends on ARCH_BST
+	help
+	  Support for BSTA1000 SoC performance monitoring
+
+config BST_DDR_PRESS_TEST
+	tristate "BST DDR PRESS TEST support"
+	depends on ARCH_BST
+	help
+	  To compile this driver as a module, choose M here: the module
+	  will be called bst_ddr_press_test.

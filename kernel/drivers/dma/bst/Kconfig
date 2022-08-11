@@ -1,0 +1,17 @@
+config BST_AXI_DMAC
+	tristate "Black Sesame Team AXI DMA support base on Synopsys DesignWare"
+	depends on OF || COMPILE_TEST
+	select DMA_ENGINE
+	select DMATEST_BST
+	select DMA_VIRTUAL_CHANNELS
+	help
+	  Enable support for Black Sesame Team AXI DMA controller.
+
+config DMATEST_BST
+	tristate "DMA Test client for BST"
+	depends on !DMATEST
+	select DMA_ENGINE_RAID
+	help
+	  Simple DMA test client. Say N unless you're debugging a
+	  DMA Device driver.
+

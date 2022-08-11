@@ -1,0 +1,27 @@
+/*
+  isx019-yuv    1280x960
+  view0:        1280x960
+*/
+compatible = "bst,isx019-isp";
+sensor-id = <0x1a>;
+data-type = <0x1e>;
+fv-polarity-low = <0>;
+fpd3-mode = "uyyv";
+serializer = "max96701";
+
+size = <1280 960>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <1280 720>;
+view0-crop = <0 720 0 1280>;
+
+view1-fmt = <1>;
+view1-size = <1280 960>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0x300>;
+
+
+

@@ -1,0 +1,12 @@
+
+config BSTN
+    tristate "Support BSTN IP"
+    depends on ARM64
+    depends on HAS_DMA
+    select AI_BSTN_FW
+    help
+        BSTN Core driver is included
+    default m
+
+config AI_BSTN_FW
+    bool "Ai bstn dsp runtime firmware"

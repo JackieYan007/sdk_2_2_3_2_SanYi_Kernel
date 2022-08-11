@@ -1,0 +1,1 @@
+//obj-$(CONFIG_BST_PSC) += pcie_save_conf.o

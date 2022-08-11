@@ -1,0 +1,749 @@
+Archive member included to satisfy reference by file (symbol)
+
+../../../src/lib/vsp/libcode_common.a(uc_corecode_main.o)
+                              core_code_boot.o (_uc_vsp_init)
+../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_corecode_main.o) (_uc_initCounters)
+../../../src/lib/vsp/libcode_common.a(uc_code_printf.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o) (_core_printf_delay_stop)
+../../../src/lib/vsp/libcode_common.a(uc_code_dma.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o) (_dram_2_bsmem)
+../../../src/lib/vsp/libcode_common.a(uc_code_util.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o) (_bsmem_2_cmem)
+../../../src/lib/vsp/example/uc_main_hello.a(uc_main_hello.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o) (_uc_main_hello)
+../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o) (_uc_main_ipc_tx)
+../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_common.o)
+                              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o) (_ipc_busy_check)
+../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_fifo.o)
+                              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o) (_kfifo_init)
+../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+                              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_common.o) (_set_thread_priority)
+../../../src/lib/vsp/vout/uc_main_vout.a(uc_i2c_common.o)
+                              ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o) (_uci_i2c_init)
+../../../src/lib/vsp/vout/uc_main_vout.a(vout_setup.o)
+                              ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o) (_clear_vout_done)
+../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o) (_uc_gwarp_main)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(uc_main_h264enc.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o) (_uc_h264enc_main)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(uc_main_h264enc.o) (_h264_enc)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(header.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o) (_bamGenerateSPSHeader)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_cfg.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o) (_memInitCfg)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_ipc.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o) (_encoder_cmd_proc)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(channel_utils.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o) (_dreg_set_default)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_init.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o) (_initConfig)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_rc.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_cfg.o) (_h264Code_rc_related)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_msg.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_cfg.o) (_enc_set_buffer_descriptor_bsmem_data_h264)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(util.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_msg.o) (_memset)
+../../../src/lib/vsp/h264enc/uc_main_h264enc.a(bitstream.o)
+                              ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(header.o) (_write_ue_v)
+../../../src/lib/vsp/self_check/uc_main_selfcheck.a(uc_main_selfcheck.o)
+                              ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o) (_uc_main_selfCheck)
+../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+                              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o) (__log_logEvent)
+../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+                              ../../../src/lib/vsp/log/uc_main_log.a(log4c.o) (_AppendInit)
+
+Allocating common symbols
+Common symbol       size              file
+
+_pGwarp_cmd_p0      0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_g_rowSync_cnt      0x4               ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+_g_ma_osd_h         0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_encoder_cmd_p1     0x10              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_log_defaultLogAppender
+                    0x4               ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+_gwc_dst_chroma     0x30              ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+_readChromaDnaddr   0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_log_ptr            0x4               ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+_vm_out_444         0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_vm_ctrl            0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_gwc_node           0xd0              ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+_vout_cmd_p1        0x10              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_dram_osd_addr      0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_vm_output_stream_ctrl
+                    0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_pEncoder_cmd_p0    0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_pSelfCheck_cmd_p0  0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_g_ma_video_h       0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_video_Luma_size    0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+__log_defaultCategory
+                    0x4               ../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+_disp_frame_counter
+                    0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_encoder_cmd_p0     0x10              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_disp_0v_counter    0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_LogMem_LogRoot     0x20              ../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+_gwarp_cmd_p1       0x10              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_g_ma_en            0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_g_ma_video_w       0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_gwc_init           0x300             ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+_vout_cmd_p0        0x10              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_pEncoder_cmd_p1    0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_g_uc_globals       0x20c             ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+_ipc_reg_base       0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_g_sync_mode        0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_pVout_cmd_p1       0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_readLumaDnaddr     0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_g_ma_osd_w         0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_g_sync_ipc_flag    0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_g_vout_status      0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_vm_input_stream_ctrl
+                    0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_pVout_cmd_p0       0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_vm_stream_en       0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_g_VspSysCfg        0x14              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_fifo_msg           0x10              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_gwc_dst_luma       0x30              ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+_mixer_frame_counter
+                    0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_selfCheck_cmd_p0   0x10              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_pFifo_msg          0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_selfCheck_status   0x4c              ../../../src/lib/vsp/self_check/uc_main_selfcheck.a(uc_main_selfcheck.o)
+_gwarp_cmd_p0       0x10              ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+_g_da_en            0x4               ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+_vsp_reg_base       0x4               ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+flash            0x000000009c000000 0x0000000000200000
+ram              0x0000000000000080 0x0000000000007f80
+rodata           0x0000000080000000 0x0000000000010000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+.text           0x000000009c000000    0x241ec
+ *(.text)
+ .text          0x000000009c000000      0x658 core_code_boot.o
+                0x000000009c000000                _th0_reset
+                0x000000009c000040                _get_core_code_base
+                0x000000009c000058                _version
+                0x000000009c000060                _date
+                0x000000009c000064                _vsp_api_version
+                0x000000009c000068                _silicon_version
+                0x000000009c00006c                _vsp_sc_reg_base
+                0x000000009c000070                _vsp_init_data_base
+                0x000000009c000074                _vsp_debug_dbase
+                0x000000009c000078                _vsp_debug_dsize
+                0x000000009c000080                _PASS
+                0x000000009c000088                _FAIL
+                0x000000009c000090                _PARK
+                0x000000009c000098                _th0_dsp_main
+                0x000000009c000250                _th1_dsp_main
+                0x000000009c0002e0                _th2_dsp_main
+                0x000000009c000374                _th3_dsp_main
+                0x000000009c000408                _th4_dsp_main
+                0x000000009c00049c                _th5_dsp_main
+                0x000000009c000530                _th6_dsp_main
+                0x000000009c0005c4                _th7_dsp_main
+ .text          0x000000009c000658       0x98 ../../../src/lib/vsp/libcode_common.a(uc_corecode_main.o)
+                0x000000009c000658                _cmem2smem_init
+                0x000000009c0006a4                _uc_vsp_init
+                0x000000009c0006cc                _uc_th_msg_main
+ .text          0x000000009c0006f0      0xacc ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+                0x000000009c0006fc                _resetGlobals
+                0x000000009c000718                _uc_initCounters
+                0x000000009c000898                _invokeCOREs
+                0x000000009c0008b8                _setDebugLevel
+                0x000000009c000928                _addDebugLevel
+                0x000000009c0009a0                _markAssertNPC
+                0x000000009c0009a4                _checkAssertThreads
+                0x000000009c0009e8                _setCodeStacks
+                0x000000009c000b80                _initCoreEntries
+                0x000000009c000b84                _revokeCoreEntry
+                0x000000009c000c30                _setCoreEntries
+                0x000000009c000c80                _printStacksBoundary
+                0x000000009c000cf4                _checkStacksBoundary
+                0x000000009c000ddc                _uc_markStacks
+                0x000000009c000ec4                _uc_mainfunc_register
+                0x000000009c000ef8                _uc_initGlobals
+ .text          0x000000009c0011bc      0x1d4 ../../../src/lib/vsp/libcode_common.a(uc_code_printf.o)
+                0x000000009c0011bc                _core_printf_init
+                0x000000009c001278                _core_printf_delay_stop
+                0x000000009c00127c                _setup_thread_printf_control
+                0x000000009c001284                _code_sprintf
+ .text          0x000000009c001390     0x267c ../../../src/lib/vsp/libcode_common.a(uc_code_dma.o)
+                0x000000009c001390                _dram_2_bsmem
+                0x000000009c001638                _dram_2_bsmem_128
+                0x000000009c001778                _bsmem_2_dram
+                0x000000009c001a20                _bsmem_2_dram_128
+                0x000000009c001bb4                _bsmem_2_dram_68
+                0x000000009c001d5c                _get_counter
+                0x000000009c001d80                _check_counter
+                0x000000009c001db8                _get_page_size
+                0x000000009c001dc0                _get_tile_height
+                0x000000009c001df0                _get_tile_width
+                0x000000009c001e08                _get_field_bit_pos
+                0x000000009c001f18                _get_base_alignment
+                0x000000009c001f4c                _get_tile_pitch
+                0x000000009c001f88                _get_tile_row_size
+                0x000000009c001fbc                _get_tile_row_height
+                0x000000009c001ff0                _set_bsmem
+                0x000000009c0020b8                _bsmem_2_bsmem
+                0x000000009c0021b0                _setupDummyDramRegWin
+                0x000000009c0022d4                _setupDramRegWin
+                0x000000009c0023f0                _setupDramRegWinRotate
+                0x000000009c002530                _setupDramRegWin_w_disables
+                0x000000009c0026ac                _setupSmemRegWin
+                0x000000009c00287c                _setupSmemRegWinRotate
+                0x000000009c002a18                _setupSmemRegWin_w_part
+                0x000000009c002b30                _setupSmemRegWin_w_spitchoffset_clip_top
+                0x000000009c002d70                _bsmemPrefetchWin
+                0x000000009c002e10                _bsmemPrefetchWinRotate
+                0x000000009c002e54                _bsmemPrefetchInc
+                0x000000009c002e98                _setupDramRegSbuf
+                0x000000009c002ea0                _setupDramRegSbuf_w_disables
+                0x000000009c002ea4                _setupSmemRegSbuf
+                0x000000009c003034                _bsmemPrefetchSbuf
+                0x000000009c0030c8                _dram_2_dram_2D
+                0x000000009c0032d4                _dram_2_dram_2D_w_rotate
+                0x000000009c003968                _set_cmem
+                0x000000009c003980                _setup_dreg_nextDbase
+                0x000000009c00398c                _setup_dram_max_outstanding
+                0x000000009c0039ec                _cmem_2_cmem
+ .text          0x000000009c003a0c      0x2ec ../../../src/lib/vsp/libcode_common.a(uc_code_util.o)
+                0x000000009c003a0c                _bsmem_2_cmem
+                0x000000009c003a24                _cmem_2_bsmem
+                0x000000009c003a3c                _cmem_2_bsmem_nowait
+                0x000000009c003a50                _get_cur_time
+                0x000000009c003a58                _set_tick_cycle
+                0x000000009c003a60                _setup_dregs4
+                0x000000009c003a6c                _setup_dregs5
+                0x000000009c003a78                _setup_dregs
+                0x000000009c003a94                _setup_sreg5sbuf
+                0x000000009c003ac8                _setup_sreg56sbuf
+                0x000000009c003ad8                _dma_fetch
+                0x000000009c003af8                _dma_fetch128
+                0x000000009c003b18                _dma_store
+                0x000000009c003b38                _dma_store128
+                0x000000009c003b58                _dma_store68
+                0x000000009c003b78                _set_counter
+                0x000000009c003b9c                _wait_s_sync_gpr
+                0x000000009c003ba4                _wait_r_sync_gpr
+                0x000000009c003bac                _wait_d_sync_gpr
+                0x000000009c003bb4                _wait_r_d_sync_gpr
+                0x000000009c003bc0                _wait_d_r_sync_gpr
+                0x000000009c003bc8                _set_thread0_priority
+                0x000000009c003bd0                _set_thread1_priority
+                0x000000009c003bd8                _set_thread2_priority
+                0x000000009c003be0                _set_thread3_priority
+                0x000000009c003be8                _set_thread4_priority
+                0x000000009c003bf0                _set_thread5_priority
+                0x000000009c003bf8                _set_thread6_priority
+                0x000000009c003c00                _set_thread7_priority
+                0x000000009c003c08                _get_thread0_priority
+                0x000000009c003c10                _get_thread1_priority
+                0x000000009c003c18                _get_thread2_priority
+                0x000000009c003c20                _get_thread3_priority
+                0x000000009c003c28                _get_thread4_priority
+                0x000000009c003c30                _get_thread5_priority
+                0x000000009c003c38                _get_thread6_priority
+                0x000000009c003c40                _get_thread7_priority
+                0x000000009c003c48                _set_thread0_resch_time
+                0x000000009c003c50                _set_thread1_resch_time
+                0x000000009c003c58                _set_thread2_resch_time
+                0x000000009c003c60                _set_thread3_resch_time
+                0x000000009c003c68                _set_thread4_resch_time
+                0x000000009c003c70                _set_thread5_resch_time
+                0x000000009c003c78                _set_thread6_resch_time
+                0x000000009c003c80                _set_thread7_resch_time
+                0x000000009c003c88                _get_thread0_resch_time
+                0x000000009c003c90                _get_thread1_resch_time
+                0x000000009c003c98                _get_thread2_resch_time
+                0x000000009c003ca0                _get_thread3_resch_time
+                0x000000009c003ca8                _get_thread4_resch_time
+                0x000000009c003cb0                _get_thread5_resch_time
+                0x000000009c003cb8                _get_thread6_resch_time
+                0x000000009c003cc0                _get_thread7_resch_time
+                0x000000009c003cc8                _get_self_thread
+                0x000000009c003cd0                _get_code_npc
+                0x000000009c003cd8                _brv_printf
+                0x000000009c003cd8                _code_printf
+                0x000000009c003ce0                _brv_load_store_image
+                0x000000009c003ce0                _code_load_store_image
+                0x000000009c003ce8                _label_h264_load_data
+                0x000000009c003cf0                _label_h264_store_data
+ .text          0x000000009c003cf8       0x24 ../../../src/lib/vsp/example/uc_main_hello.a(uc_main_hello.o)
+                0x000000009c003cf8                _uc_main_hello
+ .text          0x000000009c003d1c      0xfec ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+                0x000000009c003d24                _strncmp
+                0x000000009c003d78                _vsp_init
+                0x000000009c003e38                _ipc_notify
+                0x000000009c003fc0                _uc_main_ipc_tx
+                0x000000009c00425c                _ipc_fifo_put
+                0x000000009c004334                _uc_main_ipc_rx
+                0x000000009c004b20                _vout_ipc_wait_recv
+                0x000000009c004b28                _vout_ipc_wait_decr
+                0x000000009c004b30                _vout_ipc_wait_send
+                0x000000009c004b38                _vout_ipc_wait_get
+                0x000000009c004b40                _vout_fifo_len_p0
+                0x000000009c004b60                _vout_fifo_get_p0
+                0x000000009c004b74                _vout_fifo_len_p1
+                0x000000009c004b94                _vout_fifo_get_p1
+                0x000000009c004ba8                _gwarp_ipc_wait_recv
+                0x000000009c004bb0                _gwarp_ipc_wait_decr
+                0x000000009c004bb8                _gwarp_ipc_wait_send
+                0x000000009c004bc0                _gwarp_ipc_wait_get
+                0x000000009c004bc8                _gwarp_fifo_len_p0
+                0x000000009c004be8                _gwarp_fifo_get_p0
+                0x000000009c004bfc                _gwarp_fifo_len_p1
+                0x000000009c004c00                _gwarp_fifo_get_p1
+                0x000000009c004c04                _gwarp_fifo_put_p0
+                0x000000009c004c18                _encoder_ipc_wait_recv
+                0x000000009c004c20                _encoder_ipc_wait_decr
+                0x000000009c004c28                _encoder_ipc_wait_send
+                0x000000009c004c30                _encoder_ipc_wait_get
+                0x000000009c004c38                _encoder_fifo_len_p0
+                0x000000009c004c58                _encoder_fifo_get_p0
+                0x000000009c004c6c                _encoder_fifo_len_p1
+                0x000000009c004c8c                _encoder_fifo_get_p1
+                0x000000009c004ca0                _encoder_fifo_put_p0
+                0x000000009c004cb4                _selfCheck_ipc_wait_recv
+                0x000000009c004cbc                _selfCheck_ipc_wait_decr
+                0x000000009c004cc4                _selfCheck_ipc_wait_send
+                0x000000009c004ccc                _selfCheck_ipc_wait_get
+                0x000000009c004cd4                _selfCheck_fifo_len_p0
+                0x000000009c004cf4                _selfCheck_fifo_get_p0
+ .text          0x000000009c004d08      0x4e8 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_common.o)
+                0x000000009c004d20                _ipc_busy_check
+                0x000000009c004e40                _ipc_event_get
+                0x000000009c004e90                _ipc_event_trig
+                0x000000009c004f50                _ipc_event_clear
+                0x000000009c005088                _ipc_int_init
+ .text          0x000000009c0051f0      0x1d4 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_fifo.o)
+                0x000000009c0051f0                _kfifo_init
+                0x000000009c005204                _kfifo_len
+                0x000000009c005214                _kfifo_put
+                0x000000009c0052ec                _kfifo_get
+ .text          0x000000009c0053c4     0x1b5c ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+                0x000000009c0053c4                _vout_ma_setup
+                0x000000009c00565c                _vout_da_setup
+                0x000000009c005870                _vout_init
+                0x000000009c00596c                _i2c_config
+                0x000000009c005ad8                _vout_display_start
+                0x000000009c005b44                _vout_display_stop
+                0x000000009c005c6c                _vout_invalidate
+                0x000000009c005cc0                _vout_ma_ctrl
+                0x000000009c005cf8                _vout_da_ctrl
+                0x000000009c005d30                _vout_osd_ctrl
+                0x000000009c005db0                _vout_osdbuffer_set
+                0x000000009c005e00                _vout_timing_set
+                0x000000009c0062d0                _vout_format_set
+                0x000000009c00633c                _vout_osd_switch
+                0x000000009c0063f4                _vout_cmd_process
+                0x000000009c006520                _vout_cmd_proc
+                0x000000009c006640                _vout_loop
+                0x000000009c006b14                _set_thread_priority
+                0x000000009c006b94                _vout_feedback
+                0x000000009c006be8                _vout_status_check
+                0x000000009c006ce0                _uc_vout_main
+ .text          0x000000009c006f20      0x204 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_i2c_common.o)
+                0x000000009c006f38                _uci_i2c_init
+                0x000000009c006fc0                _uci_i2c_wrA8D8
+ .text          0x000000009c007124       0x30 ../../../src/lib/vsp/vout/uc_main_vout.a(vout_setup.o)
+                0x000000009c007124                _clear_vout_done
+                0x000000009c00712c                _get_vout_done
+                0x000000009c007134                _clear_vout_status
+                0x000000009c00713c                _get_vout_status
+                0x000000009c007144                _bsmem_2_vout
+ .text          0x000000009c007154     0x24ec ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+                0x000000009c00716c                _gwarp_scaler_update
+                0x000000009c0077ec                _gwarp_scaler_init
+                0x000000009c007944                _gwarp_crop_update
+                0x000000009c007af4                _gwarp_crop_init
+                0x000000009c007c64                _gwarp_dma_init
+                0x000000009c007e64                _gwc_wm_init
+                0x000000009c007f48                _gwarp_dma_cfg
+                0x000000009c008780                _gwarp_table_update
+                0x000000009c00888c                _gwarp_table_init
+                0x000000009c0088d8                _gwarp_core_sys_cfg
+                0x000000009c008a78                _gwarp_sys_get
+                0x000000009c008ae0                _gwarp_init
+                0x000000009c008ba0                _gwarp_dma_update
+                0x000000009c008bd0                _gwarp_dma_update_directMode
+                0x000000009c008c00                _gwarp_dma_update_plus
+                0x000000009c008c28                _dma_wm_dram_row_init
+                0x000000009c008c3c                _dma_wm_bsmem_row_init
+                0x000000009c008c54                _nv12_sync
+                0x000000009c008cb8                _yuv422_sync
+                0x000000009c008d14                _gwc_wm_handshake
+                0x000000009c008d54                _gwc_direct
+                0x000000009c008d70                _gwc_start
+                0x000000009c008da4                _gwc_top
+                0x000000009c008f70                _gwarp_frmae_done
+                0x000000009c00902c                _gwarp_cmd_process
+                0x000000009c009430                _gwarp_cmd_proc
+                0x000000009c0094cc                _uc_gwarp_main
+ .text          0x000000009c009640       0x20 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(uc_main_h264enc.o)
+                0x000000009c009640                _uc_h264enc_main
+                0x000000009c009650                _uc_h264enc_vcap
+ .text          0x000000009c009660     0x2458 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+                0x000000009c00a9c8                _get_codingOut_Size_C
+                0x000000009c00aa7c                _h264_multiChannel_cfg
+                0x000000009c00ac34                _h264_multiChannel_restore
+                0x000000009c00acc4                _h264_multiChannel_backup
+                0x000000009c00ad54                _h264_enc
+                0x000000009c00b9cc                _vcap_th
+ .text          0x000000009c00bab8      0xac0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(header.o)
+                0x000000009c00c11c                _GeneratePic_parameter_set_rbsp
+                0x000000009c00c30c                _bamGenerateSPSHeader
+                0x000000009c00c3e8                _bamGeneratePPSHeader
+                0x000000009c00c450                _bamGenerateSliceHeader
+ .text          0x000000009c00c578     0x75d0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_cfg.o)
+                0x000000009c012de8                _memInitCfg
+                0x000000009c012ec8                _h264MemInit
+                0x000000009c013210                _h264MemInit_NoClear
+                0x000000009c01350c                _h264MemInit_2
+ .text          0x000000009c013b48      0x920 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_ipc.o)
+                0x000000009c013b48                _encoder_frame_start
+                0x000000009c013c64                _encoder_sps_pps_resend
+                0x000000009c013d54                _encoder_bitrate_remap
+                0x000000009c013e5c                _encoder_cmd_process
+                0x000000009c014104                _encoder_cmd_proc
+                0x000000009c0142a0                _encoder_frmae_done
+ .text          0x000000009c014468      0x2f8 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(channel_utils.o)
+                0x000000009c014468                _dreg_set_default
+                0x000000009c014484                _dreg_set_buf_size
+                0x000000009c0144e4                _dreg_set_width
+                0x000000009c014514                _dreg_setup
+                0x000000009c01455c                _sreg_win_set_default
+                0x000000009c014584                _sreg_sbuf_set_default
+                0x000000009c0145b0                _sreg_win_set_buf_size
+                0x000000009c014610                _sreg_sbuf_set_buf_size
+                0x000000009c01466c                _sreg_win_setup
+                0x000000009c0146e0                _sreg_sbuf_setup
+                0x000000009c014754                _sreg_set_unused
+ .text          0x000000009c014760     0x116c ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_init.o)
+                0x000000009c0149e8                _initConfig
+                0x000000009c01517c                _initMdConfig
+                0x000000009c0153a0                _initMdConfig2
+                0x000000009c01547c                _codingInit_C
+ .text          0x000000009c0158cc     0xc1a0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_rc.o)
+                0x000000009c01f894                ___divdi3
+                0x000000009c01f91c                _div64_i
+                0x000000009c01f97c                _rc_h264_update_pic_bst
+                0x000000009c0213a0                _store_for_future
+                0x000000009c021824                _h264Code_rc_related
+                0x000000009c0219b0                _resetRcPar
+ .text          0x000000009c021a6c      0xa88 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_msg.o)
+                0x000000009c02240c                _enc_set_buffer_descriptor_bsmem_data_h264
+ .text          0x000000009c0224f4     0x11ac ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(util.o)
+                0x000000009c0224f4                _memset
+                0x000000009c022514                _memcpy
+                0x000000009c022538                _cmem2smem
+                0x000000009c02254c                _smem2cmem
+                0x000000009c022560                _writeBsmemReg
+                0x000000009c022aa8                _writeIspReg
+                0x000000009c022af0                _writeGwarpReg
+                0x000000009c022b38                _readAHBReg
+                0x000000009c022b74                _writeAHBReg
+                0x000000009c022b8c                _setDDMA
+                0x000000009c022cd4                _setSDMA
+                0x000000009c022e80                _setSyncCounter
+                0x000000009c022ee4                _checkAndDecrCounter
+                0x000000009c022f58                _wait_time
+                0x000000009c022f60                _printMemoryBlock_16
+                0x000000009c022ffc                ___bsmem_2_dram
+                0x000000009c023218                ___bsmem_2_dram_128
+                0x000000009c023374                ___bsmem_2_dram_128xn
+                0x000000009c02346c                ___bsmem_2_dram_32xn
+                0x000000009c023560                _clearDramSeg_128
+                0x000000009c023600                _clearDramSeg_32
+ .text          0x000000009c0236a0      0x374 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(bitstream.o)
+                0x000000009c023884                _write_ue_v
+                0x000000009c0238f8                _write_se_v
+                0x000000009c02396c                _write_u_1
+                0x000000009c0239dc                _write_u_v
+ .text          0x000000009c023a14      0x3d8 ../../../src/lib/vsp/self_check/uc_main_selfcheck.a(uc_main_selfcheck.o)
+                0x000000009c023a14                _selfCheck_ipc_send
+                0x000000009c023bf4                _selfCheck_cmd_process
+                0x000000009c023d58                _uc_main_selfCheck
+ .text          0x000000009c023dec      0x28c ../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+                0x000000009c023e4c                __log_logEvent
+                0x000000009c023ec0                _log_setParent
+                0x000000009c023fb8                __log_initCat
+                0x000000009c023ff8                _log_setThreshold
+                0x000000009c024010                _log_initCategory
+                0x000000009c024070                _log_setAppender
+ .text          0x000000009c024078      0x174 ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+                0x000000009c02419c                _AppendInit
+                0x000000009c0241c0                _vsp_log_init
+
+.rodata         0x0000000080000000     0x49b4
+ *(.rodata)
+ .rodata        0x0000000080000000       0x20 ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+ .rodata        0x0000000080000020       0x3b ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+ *fill*         0x000000008000005b        0x1 
+ .rodata        0x000000008000005c       0x30 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_common.o)
+ .rodata        0x000000008000008c      0x620 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+ .rodata        0x00000000800006ac       0x32 ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+ *fill*         0x00000000800006de        0x2 
+ .rodata        0x00000000800006e0        0x9 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+ *fill*         0x00000000800006e9        0x3 
+ .rodata        0x00000000800006ec       0x3b ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_ipc.o)
+ *(.rodata*)
+ *fill*         0x0000000080000727        0x1 
+ .rodata.str1.4
+                0x0000000080000728       0x25 ../../../src/lib/vsp/libcode_common.a(uc_corecode_main.o)
+ *fill*         0x000000008000074d        0x3 
+ .rodata.str1.4
+                0x0000000080000750      0x36f ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+ *fill*         0x0000000080000abf        0x1 
+ .rodata.str1.4
+                0x0000000080000ac0       0x42 ../../../src/lib/vsp/libcode_common.a(uc_code_printf.o)
+ *fill*         0x0000000080000b02        0x2 
+ .rodata.str1.4
+                0x0000000080000b04      0x890 ../../../src/lib/vsp/libcode_common.a(uc_code_dma.o)
+ .rodata.str1.4
+                0x0000000080001394       0x10 ../../../src/lib/vsp/example/uc_main_hello.a(uc_main_hello.o)
+ .rodata.str1.4
+                0x00000000800013a4      0x2c1 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+ *fill*         0x0000000080001665        0x3 
+ .rodata.str1.4
+                0x0000000080001668       0x71 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_common.o)
+ *fill*         0x00000000800016d9        0x3 
+ .rodata.str1.4
+                0x00000000800016dc       0x8b ../../../src/lib/vsp/vout/uc_main_vout.a(uc_i2c_common.o)
+ *fill*         0x0000000080001767        0x1 
+ .rodata.str1.4
+                0x0000000080001768      0x106 ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+ *fill*         0x000000008000186e        0x2 
+ .rodata.str1.4
+                0x0000000080001870      0x48c ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+ .rodata.str1.4
+                0x0000000080001cfc      0x793 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(header.o)
+ *fill*         0x000000008000248f        0x1 
+ .rodata.str1.4
+                0x0000000080002490      0x775 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_cfg.o)
+ *fill*         0x0000000080002c05        0x3 
+ .rodata.str1.4
+                0x0000000080002c08      0x154 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_ipc.o)
+ .rodata.str1.4
+                0x0000000080002d5c      0x26e ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_init.o)
+ *fill*         0x0000000080002fca        0x2 
+ .rodata.str1.4
+                0x0000000080002fcc     0x1797 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_rc.o)
+                                       0x179b (size before relaxing)
+ *fill*         0x0000000080004763        0x1 
+ .rodata.str1.4
+                0x0000000080004764      0x21a ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(util.o)
+                                        0x242 (size before relaxing)
+ .rodata.str1.4
+                0x000000008000497e        0x8 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(bitstream.o)
+ *fill*         0x000000008000497e        0x2 
+ .rodata.str1.4
+                0x0000000080004980       0x1b ../../../src/lib/vsp/self_check/uc_main_selfcheck.a(uc_main_selfcheck.o)
+ *fill*         0x000000008000499b        0x1 
+ .rodata.str1.4
+                0x000000008000499c        0xd ../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+                                         0x11 (size before relaxing)
+ *fill*         0x00000000800049a9        0x3 
+ .rodata.str1.4
+                0x00000000800049ac        0x8 ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+                                          0x6 (size before relaxing)
+
+.rela.dyn       0x00000000800049b4        0x0
+ .rela.text     0x00000000800049b4        0x0 core_code_boot.o
+
+.data           0x0000000000000080        0x0
+ *(.data)
+ .data          0x0000000000000080        0x0 core_code_boot.o
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/libcode_common.a(uc_corecode_main.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/libcode_common.a(uc_code_printf.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/libcode_common.a(uc_code_dma.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/libcode_common.a(uc_code_util.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/example/uc_main_hello.a(uc_main_hello.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_common.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_fifo.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_i2c_common.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/vout/uc_main_vout.a(vout_setup.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(uc_main_h264enc.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(header.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_cfg.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_ipc.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(channel_utils.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_init.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_rc.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_msg.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(util.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(bitstream.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/self_check/uc_main_selfcheck.a(uc_main_selfcheck.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+ .data          0x0000000000000080        0x0 ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+
+.log            0x0000000000000080      0x110
+                0x0000000000000100                . = ALIGN (0x100)
+ *fill*         0x0000000000000080       0x80 
+ *(.log_info)
+ .log_info      0x0000000000000100       0x10 ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+                0x0000000000000100                _log_info
+ *(.log_ctrl)
+ .log_ctrl      0x0000000000000110       0x20 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+                0x0000000000000110                _LogMem_VSP_IPC
+ .log_ctrl      0x0000000000000130       0x20 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+                0x0000000000000130                _LogMem_VSP_VOUT
+ .log_ctrl      0x0000000000000150       0x20 ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+                0x0000000000000150                _LogMem_VSP_GWARP
+ .log_ctrl      0x0000000000000170       0x20 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+                0x0000000000000170                _LogMem_VSP_H264
+
+.bss            0x0000000000000190      0x7c4
+ *(.bss)
+ .bss           0x0000000000000190        0x0 core_code_boot.o
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/libcode_common.a(uc_corecode_main.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/libcode_common.a(uc_code_printf.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/libcode_common.a(uc_code_dma.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/libcode_common.a(uc_code_util.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/example/uc_main_hello.a(uc_main_hello.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_common.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_fifo.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_i2c_common.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/vout/uc_main_vout.a(vout_setup.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(uc_main_h264enc.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(header.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_cfg.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_ipc.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(channel_utils.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_init.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_rc.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_msg.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(util.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(bitstream.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/self_check/uc_main_selfcheck.a(uc_main_selfcheck.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+ .bss           0x0000000000000190        0x0 ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+ COMMON         0x0000000000000190      0x20c ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+                0x0000000000000190                _g_uc_globals
+ COMMON         0x000000000000039c       0xb8 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+                0x000000000000039c                _pGwarp_cmd_p0
+                0x00000000000003a0                _encoder_cmd_p1
+                0x00000000000003b0                _vout_cmd_p1
+                0x00000000000003c0                _pEncoder_cmd_p0
+                0x00000000000003c4                _pSelfCheck_cmd_p0
+                0x00000000000003c8                _encoder_cmd_p0
+                0x00000000000003d8                _gwarp_cmd_p1
+                0x00000000000003e8                _vout_cmd_p0
+                0x00000000000003f8                _pEncoder_cmd_p1
+                0x00000000000003fc                _ipc_reg_base
+                0x0000000000000400                _pVout_cmd_p1
+                0x0000000000000404                _pVout_cmd_p0
+                0x0000000000000408                _g_VspSysCfg
+                0x000000000000041c                _fifo_msg
+                0x000000000000042c                _selfCheck_cmd_p0
+                0x000000000000043c                _pFifo_msg
+                0x0000000000000440                _gwarp_cmd_p0
+                0x0000000000000450                _vsp_reg_base
+ COMMON         0x0000000000000454       0x54 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+                0x0000000000000454                _g_ma_osd_h
+                0x0000000000000458                _readChromaDnaddr
+                0x000000000000045c                _vm_out_444
+                0x0000000000000460                _vm_ctrl
+                0x0000000000000464                _dram_osd_addr
+                0x0000000000000468                _vm_output_stream_ctrl
+                0x000000000000046c                _g_ma_video_h
+                0x0000000000000470                _video_Luma_size
+                0x0000000000000474                _disp_frame_counter
+                0x0000000000000478                _disp_0v_counter
+                0x000000000000047c                _g_ma_en
+                0x0000000000000480                _g_ma_video_w
+                0x0000000000000484                _g_sync_mode
+                0x0000000000000488                _readLumaDnaddr
+                0x000000000000048c                _g_ma_osd_w
+                0x0000000000000490                _g_sync_ipc_flag
+                0x0000000000000494                _g_vout_status
+                0x0000000000000498                _vm_input_stream_ctrl
+                0x000000000000049c                _vm_stream_en
+                0x00000000000004a0                _mixer_frame_counter
+                0x00000000000004a4                _g_da_en
+ COMMON         0x00000000000004a8      0x430 ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+                0x00000000000004a8                _gwc_dst_chroma
+                0x00000000000004d8                _gwc_node
+                0x00000000000005a8                _gwc_init
+                0x00000000000008a8                _gwc_dst_luma
+ COMMON         0x00000000000008d8        0x4 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+                0x00000000000008d8                _g_rowSync_cnt
+ COMMON         0x00000000000008dc       0x4c ../../../src/lib/vsp/self_check/uc_main_selfcheck.a(uc_main_selfcheck.o)
+                0x00000000000008dc                _selfCheck_status
+ COMMON         0x0000000000000928       0x24 ../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+                0x0000000000000928                __log_defaultCategory
+                0x000000000000092c                _LogMem_LogRoot
+ COMMON         0x000000000000094c        0x8 ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+                0x000000000000094c                _log_defaultLogAppender
+                0x0000000000000950                _log_ptr
+LOAD core_code_boot.o
+LOAD ../../../src/lib/vsp/libcode_common.a
+LOAD ../../../src/lib/vsp/example/uc_main_hello.a
+LOAD ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a
+LOAD ../../../src/lib/common/lib_common.a
+LOAD ../../../src/lib/vsp/vout/uc_main_vout.a
+LOAD ../../../src/lib/vsp/gwc/uc_main_gwc.a
+LOAD ../../../src/lib/vsp/h264enc/uc_main_h264enc.a
+LOAD ../../../src/lib/vsp/self_check/uc_main_selfcheck.a
+LOAD ../../../src/lib/vsp/log/uc_main_log.a
+LOAD ../../../src/lib/vsp/libcode_common.a
+LOAD ../../../src/lib/vsp/example/uc_main_hello.a
+LOAD ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a
+LOAD ../../../src/lib/common/lib_common.a
+LOAD ../../../src/lib/vsp/vout/uc_main_vout.a
+LOAD ../../../src/lib/vsp/gwc/uc_main_gwc.a
+LOAD ../../../src/lib/vsp/h264enc/uc_main_h264enc.a
+LOAD ../../../src/lib/vsp/self_check/uc_main_selfcheck.a
+LOAD ../../../src/lib/vsp/log/uc_main_log.a
+OUTPUT(core_code.exe elf32-littleriscv)
+
+.sbss           0x0000000000000954       0x18
+ .sbss          0x0000000000000954        0x8 ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+ .sbss          0x000000000000095c        0x8 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_ipc.o)
+ .sbss          0x0000000000000964        0x8 ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 ../../../src/lib/vsp/libcode_common.a(uc_corecode_main.o)
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/libcode_common.a(uc_vsp_global.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/libcode_common.a(uc_code_printf.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/libcode_common.a(uc_code_dma.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/example/uc_main_hello.a(uc_main_hello.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_main_ipc_sim.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_common.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/ipc_sim/uc_main_ipc_sim.a(uc_ipc_fifo.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_main_vout.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/vout/uc_main_vout.a(uc_i2c_common.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/gwc/uc_main_gwc.a(uc_main_gwc.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(uc_main_h264enc.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_frame.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(header.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_cfg.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_ipc.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(channel_utils.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_init.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_rc.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(h264_msg.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(util.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/h264enc/uc_main_h264enc.a(bitstream.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/self_check/uc_main_selfcheck.a(uc_main_selfcheck.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/log/uc_main_log.a(log4c.o)
+ .comment       0x0000000000000011       0x12 ../../../src/lib/vsp/log/uc_main_log.a(defaultAppender.o)

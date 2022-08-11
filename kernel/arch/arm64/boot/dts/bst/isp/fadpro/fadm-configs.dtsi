@@ -1,0 +1,3 @@
+#include "fadm-isp-csi2.dtsi"
+#include "fadm-desers.dtsi"
+#include "fadm-cameras.dtsi"

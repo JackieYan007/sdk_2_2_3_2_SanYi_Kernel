@@ -1,0 +1,31 @@
+/*
+  ov2311-raw    1600x1300
+  view0:        1600x1300
+  view1:        1328x1080
+  view2:        -
+*/
+compatible = "bst,ov2311";
+type = "ov2311";
+sensor-id = <0x60>;
+data-type = <0x2b>;
+fv-polarity-low = <0>;
+fpd3-mode = "csi-2";
+serializer = "ti953";
+
+algo-online = "ov2311raw_AlgoParam.bin";
+
+hdr-stagger-en = <1>;
+exp-num = <1>;
+size = <1600 1300>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <1328 1080>;
+
+view1-fmt = <1>;
+view1-size = <1600 1300>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0x800>;
+

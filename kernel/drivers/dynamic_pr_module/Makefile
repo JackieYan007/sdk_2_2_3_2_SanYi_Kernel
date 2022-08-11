@@ -1,0 +1,1 @@
+obj-$(CONFIG_DYNAMIC_PR_TEST) += dynamic_pr.o

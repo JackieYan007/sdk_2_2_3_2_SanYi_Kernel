@@ -1,0 +1,80 @@
+/*
+   default deser config for a1000b-evb
+   deser0@i2c2 0x30:    max96712
+   deser1@i2c2 0x32:    ti960
+   deser2@i2c2 0x34:    ti960
+*/
+
+/*
+    maxim deser required field state
+    type        : deser_type
+    reg         : original device i2c address
+    i2c-port    : choose i2c-port 0/1 for SOCA/SOCB
+    csi2-port   : choose csi2-port 0/1 for SOCA/SOCB
+    regs        : serdes mapping i2c address
+    sensor-regs : sensor mapping i2c address
+    data-type   : data-type for Firmware 0x1e(YUV422 8bit)
+    serial-type : serial-type
+    trigger-mode: close (0),open-internal-mode(1), open-external-mode(2)
+    trigger-fps : set FPS for internal trigger mode
+    trigger-tx-gpio : transfer trigger signal to Camera's gpio
+    trigger-rx-gpio : receive trigger signal form Deser's gpio
+    maxim,dt    : YUV422-8bit 0x1E, RAW10 0x2B, RAW16 0x2E.
+*/
+&i2c3 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: max96712@29{
+        /*bst,max96712-deser*/
+        compatible = "bst,maxim-deser-hub";
+        type = "max96722";
+        ctl-mode = "evb";
+        reg = <0x29>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        data-type = <0x1e>;                 /*YUV8:*/
+        maxim,dt = <0x1e>;                 
+        maxim,hsync-invert = <0>;
+        maxim,vsync-invert = <0>;
+        maxim,link-mode = "GMSL1";
+        trigger-mode = <1>;                 /*0:default,1:internal,2:external*/
+        trigger-fps = <25>;
+        trigger-tx-gpio = <1>;
+        trigger-rx-gpio = <0>;
+        pdb-gpio = <&porta 19 0>;
+    };
+
+    deser1: ti960@3c {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "evb";
+        reg = <0x3c>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        trigger-mode = <1>;                 /*0:default,1:internal,2:external*/
+        trigger-fps = <22>;                 /*ar0231*/
+        trigger-tx-gpio = <0>;
+        trigger-rx-gpio = <1>;
+        pdb-gpio = <&porta 20 0>;
+    };
+
+    deser2: ti960@3d {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "evb";
+        reg = <0x3d>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        trigger-mode = <1>;                 /*0:default,1:internal,2:external*/
+        trigger-fps = <30>;                 /*ov10640*/
+        trigger-tx-gpio = <0>;
+        trigger-rx-gpio = <1>;
+        pdb-gpio = <&porta 21 0>;
+    };
+};
+
+#include "../common/a1000b-deser.dtsi"

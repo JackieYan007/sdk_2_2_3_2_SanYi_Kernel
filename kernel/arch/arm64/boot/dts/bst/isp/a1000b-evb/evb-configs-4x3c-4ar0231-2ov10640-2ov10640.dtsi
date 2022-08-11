@@ -1,0 +1,19 @@
+#include "../common/a1000b-isp-csi2-2x2.dtsi"
+#include "evb-desers-4x3c-4ar0231-2ov10640-2ov10640.dtsi"
+#include "evb-cameras-4x3c-4ar0231-2ov10640-2ov10640.dtsi"
+
+/ {
+	isp {
+		core@0 {
+			ports {
+				port@4 {
+					reg = <4>;
+
+					hdmi_isp: endpoint@4 {
+						remote-endpoint = <&hdmi_in>;
+					};
+				};
+			};
+		};
+	};
+};

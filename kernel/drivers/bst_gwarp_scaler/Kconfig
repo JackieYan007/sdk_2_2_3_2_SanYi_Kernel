@@ -1,0 +1,8 @@
+
+config BST_CV_GWARP_SCALER
+    tristate "Support BST CV GWARP SCALER"
+    depends on ARM64
+    depends on HAS_DMA
+    help
+        BST CV driver is included
+    default y

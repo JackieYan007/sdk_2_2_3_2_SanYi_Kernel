@@ -1,0 +1,1 @@
+obj-$(CONFIG_BST_WATCHDOG) += bst_wdt.o

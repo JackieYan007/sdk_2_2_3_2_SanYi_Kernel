@@ -1,0 +1,52 @@
+/*
+  imx424 raw    1920x1080
+  view0:        1920x1080
+  view1:        1280x720
+  view2:        320x180
+*/
+compatible = "bst,ox08b";
+type = "ox08b";
+sensor-id = <0x36>;
+data-type = <0x2d>;
+fv-polarity_low = <0>;
+fpd3-mode = "csi-2";
+serializer = "max9295";
+
+algo-offline = "ox08boffline/Ox08B40_raw14_hk_h120_AlgoParam_V1.3.0_20220701.bin";
+iq-offline = "ox08boffline/Ox08B40_raw14_hk_h120_IqParam_V1.3.0_20220701.bin";
+algo-online = "ox08boffline/Ox08B40_raw14_hk_h120_AlgoParam_V1.3.0_20220701.bin";
+iq-online = "ox08boffline/Ox08B40_raw14_hk_h120_IqParam_V1.3.0_20220701.bin";
+
+hdr-stagger-en = <0x01>; // force no dsp offline 0x81 ,inline 0x01
+exp-num = <1>;
+isp-pwl-infomat = <15>;// 0 dsp pwl ,22 hw pwl
+dvp-data-type = <0x2d>;
+vin-data-type = <0x2d>;
+size = <3840 2166>;
+dvp-dummy = <0xaaa0>;
+
+view0-fmt = <1>;
+view0-size = <1920 1080>;
+
+view1-fmt = <1>;
+view1-size = <3840 2160>;
+
+pdns-mode = <0>;
+pdns-input-view = <0>;
+hblank = <0x00000000>;
+isp-top-crop = <2>;
+isp-bot-crop = <4>;
+isp-lef-crop = <0x0000>;
+isp-rig-crop = <0x0000>;
+
+/*
+jinghua x8b,x8c serial-i2c = <0x40>;
+jika x8b serial-i2c = <0x42>
+*/
+clock-frequency = <24>;
+tri-gpio = <1>;
+maxim,rx_rate = <6>;
+serial-i2c = <0x42>;
+maxim,link-mode = "GMSL2";
+
+

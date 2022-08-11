@@ -1,0 +1,1 @@
+obj-$(CONFIG_MMC_SDHCI_BST)	        += sdhci-of-bst.o

@@ -1,0 +1,58 @@
+/*
+   default deser config for ecu-8MEG
+   deser0@i2c2 0x30:    ti960
+   deser1@i2c2 0x4a:    max9296
+   deser2@i2c2 0x2d:    max96712
+*/
+
+&i2c2 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: ti960@0x30 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x30>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        pdb-gpio = <&porta 12 1>;
+    };
+    deser1: max9296@4a {
+        compatible = "bst,max9296-deser";
+        type = "max9296";
+        reg = <0x4a>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        regs = <0x45 0x46>;
+        maxim,fsync-mode = "manual";
+        maxim,him = <1>;
+        maxim,fsync_period = <3072000>;         /*76.8MHz/25fps*/ 
+        maxim,bws = <0>;
+        maxim,dbl = <1>;
+        maxim,dt = <3>;      /*YUV8*/
+        maxim,hsync_invert = <0>;
+        maxim,vsync_invert = <1>; 
+    };
+    deser2: max96712@2d {
+        compatible = "bst,max96712-deser";
+        type = "max96712";
+        reg = <0x2d>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        regs = <0x49 0x4b 0x4c 0x4d>;
+        maxim,fsync-mode = "manual";
+        maxim,him = <1>;
+        maxim,fsync_period = <3072000>;         /*76.8MHz/25fps*/ 
+        maxim,bws = <0>;
+        maxim,dbl = <1>;
+        maxim,dt = <3>;      /*YUV8*/
+        maxim,hsync_invert = <0>;
+        maxim,vsync_invert = <1>;
+        maxim,link_mode = "GSML2";                    /*ar0143:GSML1/imx424:GSML2*/
+    };
+};
+
+#include "../common/deser.dtsi"

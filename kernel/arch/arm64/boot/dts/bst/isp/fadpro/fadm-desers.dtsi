@@ -1,0 +1,115 @@
+/*
+   default deser config for fada
+   deser0@i2c2 0x30:    ti960
+   deser1@i2c2 0x3d:    ti960
+   deser2@i2c2 0x3c:    ti960
+*/
+
+&i2c2 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: ti960@30 {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x30>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+
+        csi-link {
+            ports {
+                port@0 {
+                    clock-lanes = <0>;
+                    data-lanes = <1 2 3 4>;
+                    deser_0_out: endpoint{
+                        remote-endpoint = <&csi_0_in>;
+                    };
+                };
+            };
+        };
+
+        ports {
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            port@0 {
+                reg = <0>;
+                deser_0_in_0: endpoint@0{
+                    remote-endpoint = <&camera_0_out>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                deser_0_in_1: endpoint@1{
+                    remote-endpoint = <&camera_1_out>;
+                };
+            };
+            port@2 {
+                reg = <2>;
+                deser_0_in_2: endpoint@2{
+                    remote-endpoint = <&camera_2_out>;
+                };
+            };
+            port@3 {
+                reg = <3>;
+                deser_0_in_3: endpoint@3{
+                    remote-endpoint = <&camera_3_out>;
+                };
+            };
+        };
+    };
+
+    deser1: ti960@3c {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x3c>;
+        i2c-port = <1>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        csi-link {
+            ports {
+                port@0 {
+                    clock-lanes = <0>;
+                    data-lanes = <1 2 3 4>;
+                    deser_1_out: endpoint{
+                        remote-endpoint = <&csi_1_in>;
+                    };
+                };
+            };
+        };
+
+        ports {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            port@0 {
+                reg = <0>;
+                deser_1_in_0: endpoint@0{
+                    remote-endpoint = <&camera_4_out>;
+                };
+            };
+            port@1 {
+                reg = <1>;
+                deser_1_in_1: endpoint@1{
+                    remote-endpoint = <&camera_5_out>;
+                };
+            };
+            port@2 {
+                reg = <2>;
+                deser_1_in_2: endpoint@2{
+                    remote-endpoint = <&camera_6_out>;
+                };
+            };
+            port@3 {
+                reg = <3>;
+                deser_1_in_3: endpoint@3{
+                    remote-endpoint = <&camera_7_out>;
+                };
+            };
+        };
+    };
+};

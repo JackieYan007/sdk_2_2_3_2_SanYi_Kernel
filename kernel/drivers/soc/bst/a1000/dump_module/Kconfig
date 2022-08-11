@@ -1,0 +1,8 @@
+				
+config BST_DUMP_REGISTER
+        tristate "bst dump register"
+		depends on BST_DWMAC_ETH 
+	help
+          To compile this driver as dump_register.
+       
+		

@@ -1,0 +1,43 @@
+/*
+   default deser config for fadb
+   deser0@i2c2 0x30:    ti960
+   deser1@i2c2 0x3d:    ti960
+   deser2@i2c2 0x3c:    ti960
+*/
+
+&i2c2 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: ti960@30 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "fad-lis";
+        reg = <0x30>;
+        i2c-port = <0>;
+        csi2-port = <1>;
+        lane-speed = <1600>;
+    };
+
+    deser1: ti960@3d {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "fad-lis";
+        reg = <0x3d>;
+        i2c-port = <0>;
+        csi2-port = <1>;
+        lane-speed = <1600>;
+    };
+
+    deser2: ti960@3c {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        ctl-mode = "fad-lis";
+        reg = <0x3c>;
+        i2c-port = <0>;
+        csi2-port = <1>;
+        lane-speed = <1600>;
+    };
+};
+
+#include "../common/deser.dtsi"

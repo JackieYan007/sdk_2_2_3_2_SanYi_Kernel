@@ -1,0 +1,7 @@
+# OP-TEE Trusted Execution Environment Configuration
+config BST_OPTEE
+	tristate "BST-OP-TEE"
+	depends on ARCH_BST
+	help
+	  This implements the BST-OP-TEE Trusted Execution Environment (TEE)
+	  driver.

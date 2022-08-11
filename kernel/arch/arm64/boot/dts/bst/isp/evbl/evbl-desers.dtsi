@@ -1,0 +1,41 @@
+/*
+   default deser config for evbl
+   deser0@i2c2 0x30:    ti960
+   deser1@i2c2 0x32:    ti960
+   deser2@i2c2 0x34:    ti960
+*/
+
+&i2c2 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    deser0: ti960@30 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x30>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+    };
+
+    deser1: ti960@32 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x32>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+    };
+
+    deser2: ti960@34 {
+        compatible = "bst,ti-deser-hub";
+        type = "ti960";
+        reg = <0x34>;
+        i2c-port = <0>;
+        csi2-port = <0>;
+        lane-speed = <1600>;
+        status = "disable";
+    };
+};
+
+#include "../common/deser.dtsi"

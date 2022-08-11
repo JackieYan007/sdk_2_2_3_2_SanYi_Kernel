@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: GPL-2.0
+
+menu "BlackSesame SOC PCIe Core Support"
+	depends on PCI && ARCH_BST
+
+config PCIE_BST
+	tristate
+
+config PCIE_BST_PLAT
+	tristate
+	select PCIE_BST
+
+config PCIE_BST_HOST
+	tristate "BlackSesame SOC PCIe controller Host Mode"
+	depends on PCI_MSI_IRQ_DOMAIN
+	select PCIE_BST
+	select PCIE_BST_PLAT
+	help
+	  Say Y here if you want to support the BST-SOC PCIe controller
+	  in Host mode.
+
+config PCIE_BST_EP
+	tristate "BlackSesame SOC PCIe controller Endpoint Mode"
+	depends on PCI_ENDPOINT
+	select PCIE_BST
+	select PCIE_BST_PLAT
+	select PCI_EPDMA
+	help
+	  Say Y here if you want to support the BST-SOC PCIe controller
+	  in EndPoint mode.
+
+endmenu

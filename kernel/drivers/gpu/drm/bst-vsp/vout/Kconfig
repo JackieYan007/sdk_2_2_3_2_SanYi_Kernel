@@ -1,0 +1,7 @@
+
+config BST_VSP
+	bool "Support BST VSP"
+	depends on DRM
+	help
+	  BST IPC driver is included
+	default y

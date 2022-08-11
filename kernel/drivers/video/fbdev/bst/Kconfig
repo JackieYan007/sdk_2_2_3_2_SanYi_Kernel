@@ -1,0 +1,23 @@
+config FB_VIRTUALBST
+	tristate "BST Virtual Frame Buffer support (ONLY FOR BST TESTING!)"
+	depends on FB
+	select FB_SYS_FILLRECT
+	select FB_SYS_COPYAREA
+	select FB_SYS_IMAGEBLIT
+	select FB_SYS_FOPS
+	help
+	  This is a `virtual' frame buffer device. It operates on a chunk of
+	  unswappable kernel memory instead of on the memory of a graphics
+	  board. This means you cannot see any output sent to this frame
+	  buffer device, while it does consume precious memory. The main use
+	  of this frame buffer device is testing and debugging the frame
+	  buffer subsystem. Do NOT enable it for normal systems! To protect
+	  the innocent, it has to be enabled explicitly at boot time using the
+	  kernel option `video=vfb:'.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called vfb. In order to load it, you must use
+	  the vfb_enable=1 option.
+
+	  If unsure, say N.
+
