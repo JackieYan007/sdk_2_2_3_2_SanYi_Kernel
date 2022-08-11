@@ -496,35 +496,6 @@
     status = "okay";
 };
 
-&pcie_phy {
-    dmc-lane = <0x1>; /* bit0: 1=2x2ports, 0=1x4ports */
-    dmc-mode = <0x2>; /* bit1: 1=RC-mode, 0=EP-mode */
-    pcie-ctl0 = <1>;  /* Controller reset */
-    pcie-ctl1 = <1>;  /* Controller reset */
-    //inner-clk;
-    /*clocks= <&clkc LB_PCIE_REF_ALT_CLK_P>,
-            <&clkc LB_PCIE_AUX_CLK>,
-            <&clkc LB_PCIE_AXI_GACLK>,
-            <&clkc LB_PCIE_APB_GPCLK>;
-    clock-names = "ref_clk", "aux_clk", "axi_clk", "apb_clk";*/
-};
-
-&pcie0 {
-    status = "okay";
-    //reset-gpio = <&porth 18 0>; /* reset pcie0 gpio-242 */
-    max-link-speed = <3>;
-    num-lanes = <2>;
-};
-
-&pcie1 {
-    status = "okay";
-    //reset-gpio = <&porth 19 0>; /* reset pcie0 gpio-243 */  
-    max-link-speed = <3>;
-	num-lanes = <2>;
-    picp-ctl = "dma";
-    ob-memaddr-def = <&pcie_ctrl_reserved>;
-};
-
 &canfd0 {
     status = "okay";
     reset-gpios = <&porta 13 0>;
